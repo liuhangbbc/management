@@ -4,10 +4,16 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="management-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/management-api/management-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="management-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/management-service/management-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="framework-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/framework-common/framework-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="management-web"/>
         <property name="java-output-path" value="/management-web/target/classes"/>
+        <property name="context-root" value="m"/>
     </wb-module>
 </project-modules>
