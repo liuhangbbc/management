@@ -9,25 +9,17 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.raindrop</groupId>
-	<artifactId>management-web</artifactId>
+	<artifactId>management-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>management-web Maven Webapp</name>
+	<name>management-core</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.raindrop</groupId>
 			<artifactId>management-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.raindrop</groupId>
-			<artifactId>management-core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.raindrop</groupId>
-			<artifactId>management-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -42,7 +34,4 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-	<build>
-		<finalName>management-web</finalName>
-	</build>
 </project>

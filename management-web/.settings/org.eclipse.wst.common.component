@@ -7,6 +7,9 @@
         <dependent-module archiveName="management-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/management-api/management-api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="management-core-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/management-core/management-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="management-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/management-service/management-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
