@@ -32,12 +32,14 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 		log.info("url:" + url);
 
 		String username = (String) request.getSession().getAttribute("user");
-		if (username == null) {
-			log.info("Interceptor：跳转到login页面！");
-			response.sendRedirect("/m/index.jsp"); 
-			return false;
-		} else
-			return true;
+		// if (username == null) {
+		// log.info("Interceptor：跳转到login页面！");
+		// response.sendRedirect("/m/index.jsp");
+		// return false;
+		// } else {
+		// return true;
+		// }
+		return true;
 	}
 
 	/**

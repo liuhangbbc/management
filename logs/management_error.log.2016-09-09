@@ -1,0 +1,3 @@
+[management][ERROR] [2016-09-09 17:12:35] com.alibaba.druid.pool.DruidAbstractDataSource.setMaxIdle(935) | maxIdle is deprecated
+[management][ERROR] [2016-09-09 17:27:18] com.alibaba.druid.pool.DruidAbstractDataSource.setMaxIdle(935) | maxIdle is deprecated
+[management][ERROR] [2016-09-09 17:33:27] com.alibaba.druid.pool.DruidAbstractDataSource.setMaxIdle(935) | maxIdle is deprecated
