@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.rd.management.service.dao.admin.MasterDao">
 	<sql id="Base_Column">
-		`id`,`nick_name`,password`,`true_name`,`birth`,`sex`,`phone`,`email`,`address`,`head_image`,`parent_id`,`is_land`,`is_frozen`,`create_time`,`update_time`,`remark`
+		`id`,`account`,`nick_name`,`password`,`true_name`,`birth`,`sex`,`phone`,`email`,`address`,`head_image`,`parent_id`,`is_land`,`is_frozen`,`create_time`,`update_time`,`remark`
 	</sql>
 	<insert id="insert" parameterType="com.rd.management.api.entity.admin.Master"
 		useGeneratedKeys="true" keyProperty="id">
@@ -10,6 +10,9 @@
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				`id`,
+			</if>
+			<if test="account != null">
+				`account`,
 			</if>
 			<if test="nickName != null">
 				`nick_name`,
@@ -60,6 +63,9 @@
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=VARCHAR},
 			</if>
 			<if test="nickName != null">
 				#{nickName,jdbcType=VARCHAR},

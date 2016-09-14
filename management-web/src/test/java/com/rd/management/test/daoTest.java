@@ -24,7 +24,7 @@ public class daoTest {
 	@Test
 	public void masterDaoTest() {
 		try {
-			Master master = new Master("柳墩墩儿_004", "password", new Date());
+			Master master = new Master("liuhangbbc2", "password", new Date());
 			long result = masterService.insertMaster(master);
 			logger.info("masterDao result ===>>> " + result);
 		} catch (Exception e) {

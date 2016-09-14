@@ -19,6 +19,10 @@ public class Master implements Serializable {
 	 */
 	private Long id;
 	/**
+	 * 账号
+	 */
+	private String account;
+	/**
 	 * 昵称
 	 */
 	private String nickName;
@@ -83,9 +87,9 @@ public class Master implements Serializable {
 		super();
 	}
 
-	public Master(String nickName, String password, Date updateTime) {
+	public Master(String account, String password, Date updateTime) {
 		super();
-		this.nickName = nickName;
+		this.account = account;
 		this.password = password;
 		this.createTime = new Date();
 		this.updateTime = updateTime;
@@ -93,6 +97,10 @@ public class Master implements Serializable {
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getAccount() {
+		return account;
 	}
 
 	public String getNickName() {
@@ -157,13 +165,14 @@ public class Master implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Master [id=" + id + ", nickName=" + nickName + ", password="
-				+ password + ", trueName=" + trueName + ", birth=" + birth
-				+ ", sex=" + sex + ", phone=" + phone + ", email=" + email
-				+ ", address=" + address + ", headImage=" + headImage
-				+ ", parentId=" + parentId + ", isLand=" + isLand
-				+ ", idFrozen=" + isFrozen + ", createTime=" + createTime
-				+ ", updateTime=" + updateTime + ", remark=" + remark + "]";
+		return "Master [id=" + id + ", account=" + account + ", nickName="
+				+ nickName + ", password=" + password + ", trueName="
+				+ trueName + ", birth=" + birth + ", sex=" + sex + ", phone="
+				+ phone + ", email=" + email + ", address=" + address
+				+ ", headImage=" + headImage + ", parentId=" + parentId
+				+ ", isLand=" + isLand + ", isFrozen=" + isFrozen
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime
+				+ ", remark=" + remark + "]";
 	}
 
 }

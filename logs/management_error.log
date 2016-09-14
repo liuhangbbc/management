@@ -137,3 +137,5 @@ Bean ''
 [management][ERROR] [2016-09-14 11:27:53] com.alibaba.druid.pool.DruidAbstractDataSource.setMaxIdle(935) | maxIdle is deprecated
 [management][ERROR] [2016-09-14 14:20:16] com.alibaba.druid.pool.DruidAbstractDataSource.setMaxIdle(935) | maxIdle is deprecated
 [management][ERROR] [2016-09-14 14:53:36] com.alibaba.druid.pool.DruidAbstractDataSource.setMaxIdle(935) | maxIdle is deprecated
+[management][ERROR] [2016-09-14 17:36:00] com.alibaba.druid.pool.DruidAbstractDataSource.setMaxIdle(935) | maxIdle is deprecated
+[management][ERROR] [2016-09-14 17:36:17] com.alibaba.druid.pool.DruidAbstractDataSource.setMaxIdle(935) | maxIdle is deprecated
