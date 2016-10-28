@@ -77,7 +77,7 @@ public class LoginAction extends BaseAction {
 			try {
 				boolean success = masterService.checkLogin(account, password);
 				map.put(SUCCESS, success);
-				if (!success) {
+				if (success) {
 					httpSession.setAttribute("master", account);
 				} else {
 					map.put(ERRORCODE, "10003");

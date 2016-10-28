@@ -30,7 +30,8 @@ function checkLogin() {
 		success : function(data) {
 			if (data.success) {
 				console.info('master login successful.');
-
+				
+				//window.location.href="http://www.baidu.com";
 			} else {
 				console.info('master login failed.');
 				console.info('errorMsg : ' + data.errorMsg + ' ; errorCode : '
@@ -43,8 +44,7 @@ function checkLogin() {
 	});
 }
 
-function KeyDown()
-{
+function KeyDown() {
   if (event.keyCode == 13)
   {
     event.returnValue=false;
