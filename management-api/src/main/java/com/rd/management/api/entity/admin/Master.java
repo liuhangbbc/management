@@ -5,10 +5,12 @@ import java.util.Date;
 
 /**
  * 
- * @author lh-rs
+ * @ClassName: Master
+ * @Description: 管理员信息实体
+ * @author liuhang liuhangbbc@sina.com
+ * @date 2016年9月18日 下午2:30:06
  *
  */
-
 public class Master implements Serializable {
 	/**
 	 * 序列化

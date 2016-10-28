@@ -12,6 +12,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.rd.management.api.entity.admin.Master;
 import com.rd.management.api.service.admin.MasterService;
 
+/**
+ * 
+ * @ClassName: daoTest
+ * @author liuhang liuhangbbc@sina.com
+ * @date 2016年9月18日 下午2:26:55
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/spring-mvc.xml",
 		"classpath:/spring-mybatis.xml", "classpath:/spring.xml" })

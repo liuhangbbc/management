@@ -4,6 +4,8 @@
 	<sql id="Base_Column">
 		`id`,`account`,`nick_name`,`password`,`true_name`,`birth`,`sex`,`phone`,`email`,`address`,`head_image`,`parent_id`,`is_land`,`is_frozen`,`create_time`,`update_time`,`remark`
 	</sql>
+
+	<!-- insert语句 -->
 	<insert id="insert" parameterType="com.rd.management.api.entity.admin.Master"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into master
@@ -114,4 +116,15 @@
 			</if>
 		</trim>
 	</insert>
+
+	<!-- select语句 -->
+	<select id="queryById" parameterType="long"
+		resultType="com.rd.management.api.entity.admin.Master">
+		select * from `master` where id = #{id,jdbcType=BIGINT}
+	</select>
+	<select id="queryByAccount" parameterType="java.lang.String"
+		resultType="com.rd.management.api.entity.admin.Master">
+		select * from `master` where account =
+		#{account,jdbcType=BIGINT}
+	</select>
 </mapper>

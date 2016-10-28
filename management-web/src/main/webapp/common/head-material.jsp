@@ -63,9 +63,6 @@
 <script src="../js/jquery.mmenu.min.js"></script>
 <!--<script src="../js/core.min.js"></script>-->
 
-<!-- Pages JS -->
-<script src="../js/pages/page-login.js"></script>
-
 <!-- end: JavaScript-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

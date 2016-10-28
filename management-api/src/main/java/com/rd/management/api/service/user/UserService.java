@@ -5,6 +5,7 @@ import com.rd.management.api.entity.user.UserInfo;
 public interface UserService {
 	/**
 	 * 新增用户
+	 * 
 	 * @param userInfo
 	 * @return
 	 */

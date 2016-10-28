@@ -16,7 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class CommonAction {
 
 	@RequestMapping("/404")
-	public ModelAndView inserUser(HttpServletRequest request) {
+	public ModelAndView error404(HttpServletRequest request) {
 		return new ModelAndView("/common/404");
+	}
+
+	@RequestMapping("/500")
+	public ModelAndView error500(HttpServletRequest request) {
+		return new ModelAndView("/common/500");
 	}
 }

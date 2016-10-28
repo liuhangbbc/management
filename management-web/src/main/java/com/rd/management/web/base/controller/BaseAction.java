@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.rd.management.core.api.BaseApp;
+import com.rd.management.core.api.entity.base.BaseApp;
 
 /**
  * 
@@ -13,11 +13,19 @@ import com.rd.management.core.api.BaseApp;
  */
 public class BaseAction {
 	@Autowired
-	public BaseApp app;
+	protected BaseApp app;
 
-	public Map<String, Object> map;
+	protected Map<String, Object> map;
+	// 成功
+	protected static final String SUCCESS = "success";
+	// 失败
+	protected static final String ERROR = "error";
 
-	static {
+	// 消息
+	protected static final String MSG = "msg";
 
-	}
+	// 错误码
+	protected static final String ERRORCODE = "errorCode";
+	// 错误信息
+	protected static final String ERRORMSG = "errorMsg";
 }
