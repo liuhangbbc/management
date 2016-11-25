@@ -88,7 +88,7 @@
 						<p class="text-center text-muted">
 							© 2016 Creative . All rights reserved | Design by <a
 								href="http://www.raindrop.com/" target="_blank">
-								liuhangbbc@sina.com </a>
+								www.raindrop.com </a>
 						</p>
 					</div>
 				</div>
