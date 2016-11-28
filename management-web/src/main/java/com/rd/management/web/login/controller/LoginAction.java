@@ -1,15 +1,9 @@
 package com.rd.management.web.login.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -54,7 +48,6 @@ public class LoginAction extends BaseAction {
 		return new ModelAndView("/login/login", map);
 	}
 
-	@SuppressWarnings("finally")
 	@RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> checkLogin(HttpServletRequest request,
@@ -78,17 +71,13 @@ public class LoginAction extends BaseAction {
 				boolean success = masterService.checkLogin(account, password);
 				map.put(SUCCESS, success);
 				if (success) {
-					httpSession.setAttribute("master", account);
+					httpSession.setAttribute("master_session", account);
 				} else {
 					map.put(ERRORCODE, "10003");
 					map.put(ERRORMSG, "账号不正确或密码错误，请重新输入！");
 				}
 			} catch (Exception e) {
-				map.put(ERRORCODE, "10004");
-				map.put(ERRORMSG, "解析密码错误，请重新输入！");
-				logger.error("解析密码错误 : " + e.getLocalizedMessage());
-			} finally {
-				return map;
+				logger.error("解析密码异常 : " + e.getLocalizedMessage());
 			}
 		}
 		logger.info("=========>>>>>>>> 登录结束 <<<<<<<<=========");

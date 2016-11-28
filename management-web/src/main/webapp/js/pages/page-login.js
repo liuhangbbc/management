@@ -31,7 +31,7 @@ function checkLogin() {
 			if (data.success) {
 				console.info('master login successful.');
 				
-				//window.location.href="http://www.baidu.com";
+				window.location.href="/m/manage/index";
 			} else {
 				console.info('master login failed.');
 				console.info('errorMsg : ' + data.errorMsg + ' ; errorCode : '
