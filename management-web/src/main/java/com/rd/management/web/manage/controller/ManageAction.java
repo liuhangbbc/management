@@ -15,7 +15,7 @@ import com.rd.management.web.base.controller.BaseAction;
 /**
  * 
  * @ClassName: ManageAction
- * @Description: TODO(这里用一句话描述这个类的作用)
+ * @Description: 用户管理类
  * @author liuhang liuhangbbc@sina.com
  * @date 2016年11月28日 下午4:09:57
  *
@@ -25,7 +25,7 @@ import com.rd.management.web.base.controller.BaseAction;
 public class ManageAction extends BaseAction {
 	private final Logger logger = Logger.getLogger(this.getClass());
 
-	@RequestMapping("/index")
+	@RequestMapping("/userInfo")
 	public ModelAndView loginUser(HttpServletRequest request) {
 		map = new HashMap<String, Object>();
 		String master = (String) request.getSession().getAttribute(
@@ -37,7 +37,7 @@ public class ManageAction extends BaseAction {
 			// 以获取管理员的session登录数据
 			map.put("master_session", master);
 			logger.info("map result => " + map.toString());
-			return new ModelAndView("/platform/index", map);
+			return new ModelAndView("/manage/userInfo", map);
 		}
 
 	}

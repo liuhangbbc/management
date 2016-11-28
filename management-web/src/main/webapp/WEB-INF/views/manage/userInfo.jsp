@@ -162,11 +162,10 @@
 										class="fa fa-tasks" aria-hidden="true"></i><span>综合管理</span>
 								</a>
 									<ul class="nav nav-children">
-										<li class="active opened"><a
-											href="ui-basic-elements.html"><span class="text">个人信息</span></a></li>
-										<li><a href="ui-nestable-list.html"><span
-												class="text">管理员用户管理</span></a></li>
-										<li><a href="ui-buttons.html"><span class="text">权限管理</span></a></li>
+										<li class="active opened"><a href="userInfo"><span
+												class="text">个人信息</span></a></li>
+										<li><a href="adminManage"><span class="text">管理员用户管理</span></a></li>
+										<li><a href="pwoerManage"><span class="text">权限管理</span></a></li>
 									</ul></li>
 							</ul>
 						</nav>
@@ -203,6 +202,186 @@
 				</div>
 				<!-- End Page Header -->
 				<!-- rom start -->
+				<div class="row">
+					<div class="panel">
+						<div class="panel-body">
+							<div
+								class="text-left bk-bg-white bk-padding-top-40 bk-padding-bottom-10">
+								<div class="row">
+									<div
+										class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bk-vcenter text-center">
+										<div class="bk-avatar">
+											<img src="/m/images/defult_user.jpg" alt=""
+												class="img-circle bk-img-120 bk-border-light-gray bk-border-3x">
+										</div>
+										<h4 class="bk-margin-top-10 bk-docs-font-weight-300">Jhon
+											Smith</h4>
+									</div>
+									<hr class="bk-margin-off">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<a
+											class="col-xs-4 bk-bg-white bk-fg-primary bk-padding-top-20 bk-padding-bottom-20 text-center">
+											<i class="fa fa-facebook"></i>
+										</a> <a
+											class="col-xs-4 bk-bg-white bk-fg-success bk-padding-top-20 bk-padding-bottom-20 text-center">
+											<i class="fa fa-twitter"></i>
+										</a> <a
+											class="col-xs-4 bk-bg-white bk-fg-danger bk-padding-top-20 bk-padding-bottom-20 text-center">
+											<i class="fa fa-google-plus"></i>
+										</a>
+									</div>
+									<div
+										class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left bk-vcenter text-center">
+										<hr class="bk-margin-off">
+										<small>HTML: 60%</small>
+										<div class="progress bk-margin-bottom-10" style="height: 8px;">
+											<div class="progress thin progress-striped active">
+												<div class="progress-bar progress-bar-primary"
+													role="progressbar" aria-valuenow="60" aria-valuemin="0"
+													aria-valuemax="100" style="width: 60%;">
+													<span class="sr-only">60% Complete</span>
+												</div>
+											</div>
+										</div>
+										<small>CSS: 88%</small>
+										<div class="progress bk-margin-bottom-10" style="height: 8px;">
+											<div class="progress thin progress-striped active">
+												<div class="progress-bar progress-bar-danger"
+													role="progressbar" aria-valuenow="88" aria-valuemin="0"
+													aria-valuemax="100" style="width: 88%;">
+													<span class="sr-only">88% Complete</span>
+												</div>
+											</div>
+										</div>
+										<small>JS: 35%</small>
+										<div class="progress bk-margin-off-bottom"
+											style="height: 8px;">
+											<div class="progress thin progress-striped active">
+												<div class="progress-bar progress-bar-success"
+													role="progressbar" aria-valuenow="35" aria-valuemin="0"
+													aria-valuemax="100" style="width: 35%;">
+													<span class="sr-only">35% Complete</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="bk-margin-off">
+							<div class="bk-ltr bk-bg-white">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="bk-widget bk-border-off bk-webkit-fix">
+											<div
+												class="bk-bg-white text-center bk-padding-top-20 bk-padding-bottom-10">
+												<div class="row">
+													<div class="text-left bk-padding-left-10">
+														<h4 class="bk-margin-off">General Information</h4>
+													</div>
+												</div>
+											</div>
+											<div class="bs-example">
+												<div id="carousel-example-generic3"
+													class="carousel bk-carousel-fade slide"
+													data-ride="carousel">
+													<div class="carousel-inner">
+														<div class="item">
+															<a
+																class="panel-body bk-bg-white bk-bg-lighten bk-padding-off-top bk-padding-off-bottom">
+																<div
+																	class="pull-left bk-margin-top-10 bk-margin-right-10">
+																	<div
+																		class="bk-round bk-bg-darken bk-border-off bk-icon bk-icon-default bk-bg-primary">
+																		<i class="fa fa-thumbs-up"></i>
+																	</div>
+																</div>
+																<h5
+																	class="bk-fg-primary bk-fg-darken bk-margin-off-bottom">Position</h5>
+																<p>
+																	<small>Staff Administrator</small>
+																</p>
+															</a>
+														</div>
+														<div class="item active">
+															<a
+																class="panel-body bk-bg-white bk-bg-lighten bk-padding-off-top bk-padding-off-bottom">
+																<div
+																	class="pull-left bk-margin-top-10 bk-margin-right-10">
+																	<div
+																		class="bk-round bk-bg-darken bk-border-off bk-icon bk-icon-default bk-bg-info">
+																		<i class="fa fa-building-o"></i>
+																	</div>
+																</div>
+																<h5 class="bk-fg-info bk-fg-darken bk-margin-off-bottom">Company
+																	Name</h5>
+																<p>
+																	<small>AdminTemplate Inc.</small>
+																</p>
+															</a>
+														</div>
+													</div>
+													<a
+														class="left carousel-control bk-carousel-control bk-carousel-control-white bk-carousel-hide-init"
+														href="#carousel-example-generic3" role="button"
+														data-slide="prev"> <span
+														class="fa fa-angle-left icon-prev bk-bg-very-light-gray"></span>
+													</a> <a
+														class="right carousel-control bk-carousel-control bk-carousel-control-white bk-carousel-hide-init"
+														href="#carousel-example-generic3" role="button"
+														data-slide="next"> <span
+														class="fa fa-angle-right icon-next"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="bk-margin-off">
+							<div class="bk-ltr bk-bg-white">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div
+											class="bk-bg-white text-center bk-padding-top-20 bk-padding-bottom-10">
+											<div class="row">
+												<div class="text-left bk-padding-left-10">
+													<h4 class="bk-margin-off">Address</h4>
+												</div>
+											</div>
+										</div>
+										<div
+											class="bk-bg-white bk-bg-lighten bk-padding-top-10 bk-padding-left-20">
+											<div class="pull-left bk-margin-right-10">
+												<div class="bk-round bk-bg-darken bk-border-off">
+													<i class="fa fa-map-marker fa-2x bk-fg-danger"></i>
+												</div>
+											</div>
+											<p class="text-left">
+												<small>Blackstreet No. 256, 1256 California, USA</small>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="bk-ltr bk-padding-bottom-20 bk-padding-left-20">
+								<div class="row">
+									<div
+										class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
+										<i class="fa fa-phone"></i> +25 2569 256
+									</div>
+									<div
+										class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
+										<i class="fa fa-tablet"></i> +62 2569 2568 256
+									</div>
+									<div
+										class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
+										<i class="fa fa-envelope"></i> jhonsmith@mail.com
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<!-- rom end -->
 			</div>
 			<!-- End Main Page -->
@@ -246,10 +425,9 @@
 					<li>
 						<div class="copyright">
 							<p class="text-muted text-right">
-								Fire <i class="fa fa-coffee"></i> Collect from <a
-									href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-								- More Templates <a href="http://www.cssmoban.com/"
-									target="_blank" title="模板之家">模板之家</a>
+								Fire <i class="fa fa-coffee"></i> © 2016 Creative . All rights
+								reserved | Design by <a href="http://www.raindrop.com/"
+									target="_blank"> www.raindrop.com </a>
 							</p>
 						</div>
 					</li>
