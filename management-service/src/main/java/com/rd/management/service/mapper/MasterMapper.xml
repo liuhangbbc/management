@@ -2,28 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.rd.management.service.dao.admin.MasterDao">
 	<sql id="Base_Column">
-		`id`,`account`,`nick_name`,`password`,`true_name`,`birth`,`sex`,`phone`,`email`,`address`,`head_image`,`parent_id`,`is_land`,`is_frozen`,`create_time`,`update_time`,`remark`
+		`id`,`code`,`account`,`password`,`user_name`,`birth`,`sex`,`phone`,`e_mail`,`head_image`,`create_time`,`last_time`,`is_land`,`is_frozen`,`remark`
 	</sql>
 
 	<!-- insert语句 -->
 	<insert id="insert" parameterType="com.rd.management.api.entity.admin.Master"
 		useGeneratedKeys="true" keyProperty="id">
-		insert into master
+		insert into t_system_master
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				`id`,
 			</if>
+			<if test="code != null">
+				`code`,
+			</if>
 			<if test="account != null">
 				`account`,
-			</if>
-			<if test="nickName != null">
-				`nick_name`,
 			</if>
 			<if test="password != null">
 				`password`,
 			</if>
-			<if test="trueName != null">
-				`true_name`,
+			<if test="userName != null">
+				`user_name`,
 			</if>
 			<if test="birth != null">
 				`birth`,
@@ -35,28 +35,22 @@
 				`phone`,
 			</if>
 			<if test="email != null">
-				`email`,
-			</if>
-			<if test="address != null">
-				`address`,
+				`e_mail`,
 			</if>
 			<if test="headImage != null">
 				`head_image`,
 			</if>
-			<if test="parentId != null">
-				`parent_id`,
+			<if test="createTime != null">
+				`create_time`,
+			</if>
+			<if test="lastTime != null">
+				`last_time`,
 			</if>
 			<if test="isLand != null">
 				`is_land`,
 			</if>
 			<if test="isFrozen != null">
 				`is_frozen`,
-			</if>
-			<if test="createTime != null">
-				`create_time`,
-			</if>
-			<if test="updateTime != null">
-				`update_time`,
 			</if>
 			<if test="remark != null">
 				`remark`,
@@ -66,17 +60,17 @@
 			<if test="id != null">
 				#{id,jdbcType=BIGINT},
 			</if>
+			<if test="code != null">
+				#{code,jdbcType=VARCHAR},
+			</if>
 			<if test="account != null">
 				#{account,jdbcType=VARCHAR},
-			</if>
-			<if test="nickName != null">
-				#{nickName,jdbcType=VARCHAR},
 			</if>
 			<if test="password != null">
 				#{password,jdbcType=VARCHAR},
 			</if>
-			<if test="trueName != null">
-				#{trueName,jdbcType=VARCHAR},
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
 			</if>
 			<if test="birth != null">
 				#{birth,jdbcType=TIMESTAMP},
@@ -90,26 +84,20 @@
 			<if test="email != null">
 				#{email,jdbcType=VARCHAR},
 			</if>
-			<if test="address != null">
-				#{address,jdbcType=VARCHAR},
-			</if>
 			<if test="headImage != null">
 				#{headImage,jdbcType=VARCHAR},
 			</if>
-			<if test="parentId != null">
-				#{parentId,jdbcType=BIGINT},
+			<if test="createTime != null">
+				#{createTime,jdbcType=DATE},
+			</if>
+			<if test="lastTime != null">
+				#{lastTime,jdbcType=DATE},
 			</if>
 			<if test="isLand != null">
 				#{isLand,jdbcType=INTEGER},
 			</if>
 			<if test="isFrozen != null">
 				#{isFrozen,jdbcType=INTEGER},
-			</if>
-			<if test="createTime != null">
-				#{createTime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="updateTime != null">
-				#{updateTime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="remark != null">
 				#{remark,jdbcType=VARCHAR},
@@ -120,11 +108,16 @@
 	<!-- select语句 -->
 	<select id="queryById" parameterType="long"
 		resultType="com.rd.management.api.entity.admin.Master">
-		select * from `master` where id = #{id,jdbcType=BIGINT}
+		select * from `t_system_master` where id = #{id,jdbcType=BIGINT}
 	</select>
 	<select id="queryByAccount" parameterType="java.lang.String"
 		resultType="com.rd.management.api.entity.admin.Master">
-		select * from `master` where account =
-		#{account,jdbcType=BIGINT}
+		select * from `t_system_master` where account =
+		#{account,jdbcType=VARCHAR}
+	</select>
+	<select id="queryByCode" parameterType="java.lang.String"
+		resultType="com.rd.management.api.entity.admin.Master">
+		select * from `t_system_master` where code =
+		#{code,jdbcType=VARCHAR}
 	</select>
 </mapper>

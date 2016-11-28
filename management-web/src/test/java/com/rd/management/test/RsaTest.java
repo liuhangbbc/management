@@ -63,7 +63,12 @@ public class RsaTest extends BaseAppTest {
 					RSAUtils.encryptByPublicKey(pwd.trim().getBytes(), rsaApp
 							.getPublickey().trim())).trim();
 			logger.info("rsa encode result ===>>> " + encodePwd);
-			Master master = new Master("liuhangbbc3", encodePwd, new Date());
+			Master master = new Master();
+			master.setCode("code123");
+			master.setAccount("admin");
+			master.setUserName("admin");
+			master.setPassword(encodePwd);
+			master.setCreateTime(new Date());
 			long result = masterService.insertMaster(master);
 			logger.info("masterDao result ===>>> " + result);
 		} catch (Exception e) {
