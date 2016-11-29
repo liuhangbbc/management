@@ -7,7 +7,7 @@
 <meta charset="UTF-8" />
 <title>综合管理</title>
 <%@ include file="/common/head-base.jsp"%>
-<%@ include file="/common/head-material.jsp"%>
+<%@ include file="/common/head-material_css.jsp"%>
 
 <!-- start: JavaScript-->
 <!-- Pages JS -->
