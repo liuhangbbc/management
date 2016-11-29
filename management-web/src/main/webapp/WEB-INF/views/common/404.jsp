@@ -10,7 +10,7 @@
 
 <title>页面未找到_404</title>
 <%@ include file="/common/head-base.jsp"%>
-<%@ include file="/common/head-material.jsp"%>
+<%@ include file="/common/head-material_css.jsp"%>
 </head>
 <body>
 	<!-- Start: Content -->
@@ -47,5 +47,5 @@
 	</div>
 	<!--/container-->
 </body>
-
+<%@ include file="/common/head-material_js.jsp"%>
 </html>

@@ -23,5 +23,7 @@ public interface MasterService {
 
 	Master queryByAccount(String account);
 
+	Master queryByCode(String code);
+
 	boolean checkLogin(String account, String password) throws Exception;
 }

@@ -19,4 +19,7 @@ public interface MasterDao {
 
 	// 根据account（账号）查询管理员信息
 	Master queryByAccount(String account);
+
+	// 根据code（标识）查询管理员信息
+	Master queryByCode(String code);
 }

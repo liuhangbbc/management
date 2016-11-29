@@ -81,4 +81,15 @@ public class MasterSerivceImpl implements MasterService {
 		}
 		return false;
 	}
+
+	public Master queryByCode(String code) {
+		if (code == null) {
+			throw new AppException("查询code（标识）不存在!");
+		}
+		Master master = masterDao.queryByCode(code);
+		if (master == null) {
+			throw new DBException("未查询到相关管理员信息!");
+		}
+		return master;
+	}
 }

@@ -7,7 +7,7 @@
 <meta charset="UTF-8" />
 <title>平台用户登录</title>
 <%@ include file="/common/head-base.jsp"%>
-<%@ include file="/common/head-material.jsp"%>
+<%@ include file="/common/head-material_css.jsp"%>
 
 <!-- Pages JS -->
 <script src="../js/pages/page-login.js"></script>
@@ -98,4 +98,5 @@
 	</div>
 	<!--/container-->
 </body>
+<%@ include file="/common/head-material_js.jsp"%>
 </html>

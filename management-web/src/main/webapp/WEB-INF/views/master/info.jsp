@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +10,14 @@
 <meta charset="UTF-8" />
 <title>综合管理</title>
 <%@ include file="/common/head-base.jsp"%>
-<%@ include file="/common/head-material.jsp"%>
+<%@ include file="/common/head-material_css.jsp"%>
 
 <!-- start: JavaScript-->
 <!-- Pages JS -->
+<script type="text/javascript">
+var context = '<%=path%>';
+</script>
 <script src="../js/pages/page-login.js"></script>
-<script src="../js/pages/index.js"></script>
 <!-- end: JavaScript-->
 </head>
 
@@ -105,11 +110,14 @@
 				<div class="userbox">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<figure class="profile-picture hidden-xs">
-							<img src="assets/img/avatar.jpg" class="img-circle" alt="" />
+							<img
+								src="${master.headImage?master.headImage:'../images/defult_user.jpg'}"
+								class="img-circle" alt="" />
 						</figure>
 						<div class="profile-info">
-							<span class="name">John Smith Doe</span> <span class="role"><i
-								class="fa fa-circle bk-fg-success"></i> Administrator</span>
+							<span class="name">${master.userName!=null?master.userName:'N/A'}</span>
+							<span class="role"><i
+								class="fa fa-circle bk-fg-success  margin-r-03"></i>管理员</span>
 						</div> <i class="fa custom-caret"></i>
 					</a>
 					<div class="dropdown-menu">
@@ -162,10 +170,12 @@
 										class="fa fa-tasks" aria-hidden="true"></i><span>综合管理</span>
 								</a>
 									<ul class="nav nav-children">
-										<li class="active opened"><a href="userInfo"><span
+										<li><a href="<%=path%>/master/info"><span
 												class="text">个人信息</span></a></li>
-										<li><a href="adminManage"><span class="text">管理员用户管理</span></a></li>
-										<li><a href="pwoerManage"><span class="text">权限管理</span></a></li>
+										<li><a href="<%=path%>/manage/function"><span
+												class="text">功能管理</span></a></li>
+										<li><a href="<%=path%>/manage/role"><span
+												class="text">角色管理</span></a></li>
 									</ul></li>
 							</ul>
 						</nav>
@@ -174,7 +184,9 @@
 				</div>
 				<!-- Sidebar Footer-->
 				<div class="sidebar-footer">
-					<div class="small-chart-visits"></div>
+					<div class="small-chart-visits">
+						<div class="small-chart" id="sparklineLineVisits"></div>
+					</div>
 					<ul class="sidebar-terms bk-margin-top-10">
 						<li><a href="#">Terms</a></li>
 						<li><a href="#">Privacy</a></li>
@@ -197,7 +209,7 @@
 						</ol>
 					</div>
 					<div class="pull-right">
-						<h2>Dashboard</h2>
+						<h2>列表</h2>
 					</div>
 				</div>
 				<!-- End Page Header -->
@@ -211,132 +223,15 @@
 									<div
 										class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bk-vcenter text-center">
 										<div class="bk-avatar">
-											<img src="/m/images/defult_user.jpg" alt=""
+											<img src="../images/defult_user.jpg" alt=""
 												class="img-circle bk-img-120 bk-border-light-gray bk-border-3x">
 										</div>
-										<h4 class="bk-margin-top-10 bk-docs-font-weight-300">Jhon
-											Smith</h4>
+										<h4 class="bk-margin-top-10 bk-docs-font-weight-300">${master.userName!=null?master.userName:'N/A'}</h4>
 									</div>
 									<hr class="bk-margin-off">
-									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-										<a
-											class="col-xs-4 bk-bg-white bk-fg-primary bk-padding-top-20 bk-padding-bottom-20 text-center">
-											<i class="fa fa-facebook"></i>
-										</a> <a
-											class="col-xs-4 bk-bg-white bk-fg-success bk-padding-top-20 bk-padding-bottom-20 text-center">
-											<i class="fa fa-twitter"></i>
-										</a> <a
-											class="col-xs-4 bk-bg-white bk-fg-danger bk-padding-top-20 bk-padding-bottom-20 text-center">
-											<i class="fa fa-google-plus"></i>
-										</a>
-									</div>
-									<div
-										class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left bk-vcenter text-center">
-										<hr class="bk-margin-off">
-										<small>HTML: 60%</small>
-										<div class="progress bk-margin-bottom-10" style="height: 8px;">
-											<div class="progress thin progress-striped active">
-												<div class="progress-bar progress-bar-primary"
-													role="progressbar" aria-valuenow="60" aria-valuemin="0"
-													aria-valuemax="100" style="width: 60%;">
-													<span class="sr-only">60% Complete</span>
-												</div>
-											</div>
-										</div>
-										<small>CSS: 88%</small>
-										<div class="progress bk-margin-bottom-10" style="height: 8px;">
-											<div class="progress thin progress-striped active">
-												<div class="progress-bar progress-bar-danger"
-													role="progressbar" aria-valuenow="88" aria-valuemin="0"
-													aria-valuemax="100" style="width: 88%;">
-													<span class="sr-only">88% Complete</span>
-												</div>
-											</div>
-										</div>
-										<small>JS: 35%</small>
-										<div class="progress bk-margin-off-bottom"
-											style="height: 8px;">
-											<div class="progress thin progress-striped active">
-												<div class="progress-bar progress-bar-success"
-													role="progressbar" aria-valuenow="35" aria-valuemin="0"
-													aria-valuemax="100" style="width: 35%;">
-													<span class="sr-only">35% Complete</span>
-												</div>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
 							<hr class="bk-margin-off">
-							<div class="bk-ltr bk-bg-white">
-								<div class="row">
-									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-										<div class="bk-widget bk-border-off bk-webkit-fix">
-											<div
-												class="bk-bg-white text-center bk-padding-top-20 bk-padding-bottom-10">
-												<div class="row">
-													<div class="text-left bk-padding-left-10">
-														<h4 class="bk-margin-off">General Information</h4>
-													</div>
-												</div>
-											</div>
-											<div class="bs-example">
-												<div id="carousel-example-generic3"
-													class="carousel bk-carousel-fade slide"
-													data-ride="carousel">
-													<div class="carousel-inner">
-														<div class="item">
-															<a
-																class="panel-body bk-bg-white bk-bg-lighten bk-padding-off-top bk-padding-off-bottom">
-																<div
-																	class="pull-left bk-margin-top-10 bk-margin-right-10">
-																	<div
-																		class="bk-round bk-bg-darken bk-border-off bk-icon bk-icon-default bk-bg-primary">
-																		<i class="fa fa-thumbs-up"></i>
-																	</div>
-																</div>
-																<h5
-																	class="bk-fg-primary bk-fg-darken bk-margin-off-bottom">Position</h5>
-																<p>
-																	<small>Staff Administrator</small>
-																</p>
-															</a>
-														</div>
-														<div class="item active">
-															<a
-																class="panel-body bk-bg-white bk-bg-lighten bk-padding-off-top bk-padding-off-bottom">
-																<div
-																	class="pull-left bk-margin-top-10 bk-margin-right-10">
-																	<div
-																		class="bk-round bk-bg-darken bk-border-off bk-icon bk-icon-default bk-bg-info">
-																		<i class="fa fa-building-o"></i>
-																	</div>
-																</div>
-																<h5 class="bk-fg-info bk-fg-darken bk-margin-off-bottom">Company
-																	Name</h5>
-																<p>
-																	<small>AdminTemplate Inc.</small>
-																</p>
-															</a>
-														</div>
-													</div>
-													<a
-														class="left carousel-control bk-carousel-control bk-carousel-control-white bk-carousel-hide-init"
-														href="#carousel-example-generic3" role="button"
-														data-slide="prev"> <span
-														class="fa fa-angle-left icon-prev bk-bg-very-light-gray"></span>
-													</a> <a
-														class="right carousel-control bk-carousel-control bk-carousel-control-white bk-carousel-hide-init"
-														href="#carousel-example-generic3" role="button"
-														data-slide="next"> <span
-														class="fa fa-angle-right icon-next"></span>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 							<hr class="bk-margin-off">
 							<div class="bk-ltr bk-bg-white">
 								<div class="row">
@@ -345,32 +240,16 @@
 											class="bk-bg-white text-center bk-padding-top-20 bk-padding-bottom-10">
 											<div class="row">
 												<div class="text-left bk-padding-left-10">
-													<h4 class="bk-margin-off">Address</h4>
+													<h4 class="bk-margin-off">个人信息</h4>
 												</div>
 											</div>
-										</div>
-										<div
-											class="bk-bg-white bk-bg-lighten bk-padding-top-10 bk-padding-left-20">
-											<div class="pull-left bk-margin-right-10">
-												<div class="bk-round bk-bg-darken bk-border-off">
-													<i class="fa fa-map-marker fa-2x bk-fg-danger"></i>
-												</div>
-											</div>
-											<p class="text-left">
-												<small>Blackstreet No. 256, 1256 California, USA</small>
-											</p>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="bk-ltr bk-padding-bottom-20 bk-padding-left-20">
 								<div class="row">
-									<div
-										class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
-										<i class="fa fa-phone"></i> +25 2569 256
-									</div>
-									<div
-										class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
+									<div class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
 										<i class="fa fa-tablet"></i> +62 2569 2568 256
 									</div>
 									<div
@@ -387,7 +266,7 @@
 			<!-- End Main Page -->
 
 			<!-- Footer -->
-			<div id="footer">
+			<!-- <div id="footer">
 				<ul>
 					<li>
 						<div class="title">Memory</div>
@@ -432,7 +311,7 @@
 						</div>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<!-- End Footer -->
 
 		</div>
@@ -444,4 +323,5 @@
 
 </body>
 
+<%@ include file="/common/head-material_js.jsp"%>
 </html>

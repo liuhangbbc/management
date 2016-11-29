@@ -31,7 +31,7 @@ function checkLogin() {
 			if (data.success) {
 				console.info('master login successful.');
 				
-				window.location.href="/m/manage/userInfo";
+				window.location.href="/m/master/info";
 			} else {
 				console.info('master login failed.');
 				console.info('errorMsg : ' + data.errorMsg + ' ; errorCode : '

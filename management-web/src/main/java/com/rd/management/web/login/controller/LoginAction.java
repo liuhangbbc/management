@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.rd.management.api.entity.admin.Master;
 import com.rd.management.api.service.admin.MasterService;
 import com.rd.management.web.base.controller.BaseAction;
 
@@ -50,8 +50,7 @@ public class LoginAction extends BaseAction {
 
 	@RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> checkLogin(HttpServletRequest request,
-			HttpSession httpSession) {
+	public Map<String, Object> checkLogin(HttpServletRequest request) {
 		logger.info("========>>>>>>> 验证用户登录 <<<<<<<========");
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
@@ -71,7 +70,9 @@ public class LoginAction extends BaseAction {
 				boolean success = masterService.checkLogin(account, password);
 				map.put(SUCCESS, success);
 				if (success) {
-					httpSession.setAttribute("master_session", account);
+					Master master = masterService.queryByAccount(account);
+					request.getSession().setAttribute("master_session",
+							master.getCode());
 				} else {
 					map.put(ERRORCODE, "10003");
 					map.put(ERRORMSG, "账号不正确或密码错误，请重新输入！");
