@@ -15,8 +15,7 @@
 <!-- start: JavaScript-->
 <!-- Pages JS -->
 <script type="text/javascript">
-var context = '<%=path%>
-	';
+var context = '<%=path%>';
 </script>
 <script src="../js/pages/page-login.js"></script>
 <!-- end: JavaScript-->
@@ -112,7 +111,7 @@ var context = '<%=path%>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<figure class="profile-picture hidden-xs">
 							<img
-								src="${master.headImage?master.headImage:'../images/defult_user.jpg'}"
+								src="${master.headImage!=null?master.headImage:'../images/defult_user.jpg'}"
 								class="img-circle" alt="" />
 						</figure>
 						<div class="profile-info">
@@ -164,7 +163,7 @@ var context = '<%=path%>
 							<ul class="nav nav-sidebar">
 								<div class="panel-body text-center">
 									<div class="flag">
-										<img src="assets/img/flags/USA.png" class="img-flags" alt="" />
+										<img src="../images/flags/CHINA.jpg" class="img-flags width-65" alt="" />
 									</div>
 								</div>
 								<li class="nav-parent nav-expanded active"><a> <i
@@ -225,129 +224,25 @@ var context = '<%=path%>
 										<div
 											class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bk-vcenter text-center">
 											<div class="bk-avatar">
-												<img src="assets/img/avatar.jpg" alt=""
+												<img
+													src="${master.headImage!=null?master.headImage:'../images/defult_user.jpg'}"
+													alt=""
 													class="img-circle bk-img-120 bk-border-light-gray bk-border-3x" />
 											</div>
-											<h4 class="bk-margin-top-10 bk-docs-font-weight-300">Jhon
-												Smith</h4>
+											<h4 class="bk-margin-top-10 bk-docs-font-weight-300">${master.userName!=null?master.userName:'N/A'}</h4>
 										</div>
 										<hr class="bk-margin-off" />
-										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<a
-												class="col-xs-4 bk-bg-white bk-fg-primary bk-padding-top-20 bk-padding-bottom-20 text-center">
-												<i class="fa fa-facebook"></i>
-											</a> <a
-												class="col-xs-4 bk-bg-white bk-fg-success bk-padding-top-20 bk-padding-bottom-20 text-center">
-												<i class="fa fa-twitter"></i>
-											</a> <a
-												class="col-xs-4 bk-bg-white bk-fg-danger bk-padding-top-20 bk-padding-bottom-20 text-center">
-												<i class="fa fa-google-plus"></i>
-											</a>
-										</div>
 										<div
 											class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left bk-vcenter text-center">
 											<hr class="bk-margin-off" />
-											<small>HTML: 60%</small>
-											<div class="progress bk-margin-bottom-10"
+											<small class="margin-b-03 margin-t-03">个人信息完善情况</small>
+											<div class="progress bk-margin-bottom-10 margin-t-03"
 												style="height: 8px;">
 												<div class="progress thin progress-striped active">
 													<div class="progress-bar progress-bar-primary"
 														role="progressbar" aria-valuenow="60" aria-valuemin="0"
 														aria-valuemax="100" style="width: 60%;">
 														<span class="sr-only">60% Complete</span>
-													</div>
-												</div>
-											</div>
-											<small>CSS: 88%</small>
-											<div class="progress bk-margin-bottom-10"
-												style="height: 8px;">
-												<div class="progress thin progress-striped active">
-													<div class="progress-bar progress-bar-danger"
-														role="progressbar" aria-valuenow="88" aria-valuemin="0"
-														aria-valuemax="100" style="width: 88%;">
-														<span class="sr-only">88% Complete</span>
-													</div>
-												</div>
-											</div>
-											<small>JS: 35%</small>
-											<div class="progress bk-margin-off-bottom"
-												style="height: 8px;">
-												<div class="progress thin progress-striped active">
-													<div class="progress-bar progress-bar-success"
-														role="progressbar" aria-valuenow="35" aria-valuemin="0"
-														aria-valuemax="100" style="width: 35%;">
-														<span class="sr-only">35% Complete</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<hr class="bk-margin-off" />
-								<div class="bk-ltr bk-bg-white">
-									<div class="row">
-										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<div class="bk-widget bk-border-off bk-webkit-fix">
-												<div
-													class="bk-bg-white text-center bk-padding-top-20 bk-padding-bottom-10">
-													<div class="row">
-														<div class="text-left bk-padding-left-10">
-															<h4 class="bk-margin-off">General Information</h4>
-														</div>
-													</div>
-												</div>
-												<div class="bs-example">
-													<div id="carousel-example-generic3"
-														class="carousel bk-carousel-fade slide"
-														data-ride="carousel">
-														<div class="carousel-inner">
-															<div class="item">
-																<a
-																	class="panel-body bk-bg-white bk-bg-lighten bk-padding-off-top bk-padding-off-bottom">
-																	<div
-																		class="pull-left bk-margin-top-10 bk-margin-right-10">
-																		<div
-																			class="bk-round bk-bg-darken bk-border-off bk-icon bk-icon-default bk-bg-primary">
-																			<i class="fa fa-thumbs-up"></i>
-																		</div>
-																	</div>
-																	<h5
-																		class="bk-fg-primary bk-fg-darken bk-margin-off-bottom">Position</h5>
-																	<p>
-																		<small>Staff Administrator</small>
-																	</p>
-																</a>
-															</div>
-															<div class="item active">
-																<a
-																	class="panel-body bk-bg-white bk-bg-lighten bk-padding-off-top bk-padding-off-bottom">
-																	<div
-																		class="pull-left bk-margin-top-10 bk-margin-right-10">
-																		<div
-																			class="bk-round bk-bg-darken bk-border-off bk-icon bk-icon-default bk-bg-info">
-																			<i class="fa fa-building-o"></i>
-																		</div>
-																	</div>
-																	<h5
-																		class="bk-fg-info bk-fg-darken bk-margin-off-bottom">Company
-																		Name</h5>
-																	<p>
-																		<small>AdminTemplate Inc.</small>
-																	</p>
-																</a>
-															</div>
-														</div>
-														<a
-															class="left carousel-control bk-carousel-control bk-carousel-control-white bk-carousel-hide-init"
-															href="#carousel-example-generic3" role="button"
-															data-slide="prev"> <span
-															class="fa fa-angle-left icon-prev bk-bg-very-light-gray"></span>
-														</a> <a
-															class="right carousel-control bk-carousel-control bk-carousel-control-white bk-carousel-hide-init"
-															href="#carousel-example-generic3" role="button"
-															data-slide="next"> <span
-															class="fa fa-angle-right icon-next"></span>
-														</a>
 													</div>
 												</div>
 											</div>
@@ -362,20 +257,9 @@ var context = '<%=path%>
 												class="bk-bg-white text-center bk-padding-top-20 bk-padding-bottom-10">
 												<div class="row">
 													<div class="text-left bk-padding-left-10">
-														<h4 class="bk-margin-off">Address</h4>
+														<h4 class="bk-margin-off">联系方式</h4>
 													</div>
 												</div>
-											</div>
-											<div
-												class="bk-bg-white bk-bg-lighten bk-padding-top-10 bk-padding-left-20">
-												<div class="pull-left bk-margin-right-10">
-													<div class="bk-round bk-bg-darken bk-border-off">
-														<i class="fa fa-map-marker fa-2x bk-fg-danger"></i>
-													</div>
-												</div>
-												<p class="text-left">
-													<small>Blackstreet No. 256, 1256 California, USA</small>
-												</p>
 											</div>
 										</div>
 									</div>
@@ -384,15 +268,13 @@ var context = '<%=path%>
 									<div class="row">
 										<div
 											class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
-											<i class="fa fa-phone"></i> +25 2569 256
+											<i class="fa fa-tablet margin-r-03"></i>
+											${master.phone!=null?master.phone:'N/A'}
 										</div>
 										<div
 											class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
-											<i class="fa fa-tablet"></i> +62 2569 2568 256
-										</div>
-										<div
-											class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
-											<i class="fa fa-envelope"></i> jhonsmith@mail.com
+											<i class="fa fa-envelope margin-r-03"></i>
+											${master.email!=null?master.email:'N/A'}
 										</div>
 									</div>
 								</div>
@@ -405,7 +287,7 @@ var context = '<%=path%>
 							<div class="panel-body">
 								<div class="tabs tabs-warning">
 									<ul class="nav nav-tabs">
-										<li class="active"><a href="#edit" data-toggle="tab">Edit</a>
+										<li class="active"><a href="#edit" data-toggle="tab">个人</a>
 										</li>
 									</ul>
 									<div class="tab-content">
@@ -413,67 +295,44 @@ var context = '<%=path%>
 											<form class="form-horizontal" method="get">
 												<div
 													class="bk-bg-white bk-padding-top-10 bk-padding-bottom-10">
-													<h4>Personal Information</h4>
+													<h4>个人信息</h4>
 													<fieldset>
 														<div class="form-group">
-															<label for="profileFirstName">First Name</label> <input
-																type="text" class="form-control" id="profileFirstName"
-																placeholder="Enter your first name" />
+															<label for="profileFirstName">用户 id：</label>${master.id!=null?master.id:'N/A'}
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">Last Name</label> <input
-																type="text" class="form-control" id="profileLastName"
-																placeholder="Enter your last name" />
+															<label for="profileLastName">标识号码：</label>${master.code!=null?master.code:'N/A'}
 														</div>
 														<div class="form-group">
-															<label for="profileAddress">Address</label> <input
-																type="text" class="form-control" id="profileAddress"
-																placeholder="Enter your address" />
+															<label for="profileLastName">用户账号：</label>${master.account!=null?master.account:'N/A'}
 														</div>
 														<div class="form-group">
-															<label for="profileCompany">Company</label> <input
-																type="text" class="form-control" id="profileCompany"
-																placeholder="Enter your company name" />
+															<label for="profileLastName">用户名称：</label>${master.userName!=null?master.userName:'N/A'}
 														</div>
+														<div class="form-group">
+															<label for="profileLastName">出生日期：</label>${master.birth!=null?master.birth:'保密'}
+														</div>
+														<div class="form-group">
+															<label for="profileLastName">性别：</label>${master.sex==0?'保密': ''}${master.sex==1?'男': ''}${master.sex==2?'女': ''}
+														</div>
+														<div class="form-group">
+															<label for="profileLastName">创建时间：</label><fmt:formatDate value="${master.createTime!=null?master.createTime:'N/A'}" type="both" pattern="yyyy年MM月dd日  HH:mm:ss "/>
+														</div>
+														<div class="form-group">
+															<label for="profileLastName">上次登录时间：</label>${master.lastTime!=null?master.lastTime:'N/A'}
+														</div>
+														<div class="form-group">
+															<label for="profileLastName">备注：</label>${master.remark!=null0?master.remark: 'N/A'}
 													</fieldset>
-													<hr />
-													<h4>About Yourself</h4>
-													<fieldset>
-														<div class="form-group">
-															<label for="profileBio">Biographical Info</label>
-															<textarea class="form-control" rows="5" id="profileBio"
-																placeholder="Start typing"></textarea>
-														</div>
-														<div class="form-group">
-															<div
-																class="checkbox-custom checkbox-default bk-margin-bottom-10">
-																<input type="checkbox" id="profilePublish"
-																	name="profilePublish" value="profilePublish" /> <label
-																	for="profilePublish"> Publish</label>
-															</div>
-														</div>
-													</fieldset>
-													<hr />
-													<h4>Change Password</h4>
-													<fieldset>
-														<div class="form-group">
-															<label for="profileNewPassword">New Password</label> <input
-																type="text" class="form-control" id="profileNewPassword"
-																placeholder="Type New Password" />
-														</div>
-														<div class="form-group">
-															<label for="profileNewPasswordRepeat">Repeat New
-																Password</label> <input type="text" class="form-control"
-																id="profileNewPasswordRepeat"
-																placeholder="Retype New Password" />
-														</div>
-													</fieldset>
+													<hr class="bk-margin-off" />
+													<h4>信息管理</h4>
 													<div class="bk-bg-white">
 														<div class="row">
 															<div class="col-md-12">
-																<div class="pull-right">
-																	<button type="submit" class="btn btn-primary">Submit</button>
-																	<button type="reset" class="btn btn-default">Reset</button>
+																<div class="pull-center">
+																	<button type="up-head" class="btn btn-primary">上传头像</button>
+																	<button type="c-password" class="btn btn-success">修改密码</button>
+																	<button type="c-info" class="btn btn-info">修改个人信息</button>
 																</div>
 															</div>
 														</div>
@@ -487,25 +346,14 @@ var context = '<%=path%>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-12">
-						<h4>Weekly Stats</h4>
+						<h4>数据信息</h4>
 						<div class="panel bk-widget bk-border-off">
 							<div class="panel-body bk-bg-very-light-gray">
 								<div class="row bk-fg-gray">
-									<div class="col-lg-5 col-md-6 col-sm-6 col-xs-6">
+									<div class="margin-r-10 margin-l-10">
 										<h3
-											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">$
-											25,232</h3>
-										EARNINGS
-									</div>
-									<div class="col-lg-7 col-md-6 col-sm-6 col-xs-6">
-										<div class="small-chart-wrapper bk-padding-right-40">
-											<div class="small-chart" id="sparklineLineEarnings"></div>
-											<script type="text/javascript">
-												var sparklineLineEarningsData = [
-														15, 16, 17, 19, 15, 25,
-														23, 35, 29, 15, 30, 45 ];
-											</script>
-										</div>
+											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
+										等级
 									</div>
 								</div>
 							</div>
@@ -513,20 +361,10 @@ var context = '<%=path%>
 						<div class="panel bk-widget bk-border-off">
 							<div class="panel-body bk-bg-very-light-gray">
 								<div class="row bk-fg-gray">
-									<div class="col-lg-5 col-md-6 col-sm-6 col-xs-6">
+									<div class="margin-r-10 margin-l-10">
 										<h3
-											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">598</h3>
-										SALE ITEMS
-									</div>
-									<div class="col-lg-7 col-md-6 col-sm-6 col-xs-6">
-										<div class="small-chart-wrapper bk-padding-right-40">
-											<div class="small-chart" id="sparklineLineSale"></div>
-											<script type="text/javascript">
-												var sparklineLineSaleData = [
-														20, 30, 15, 40, 30, 45,
-														60, 40, 50, 32, 65, 70 ];
-											</script>
-										</div>
+											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
+										职位
 									</div>
 								</div>
 							</div>
@@ -534,97 +372,10 @@ var context = '<%=path%>
 						<div class="panel bk-widget bk-border-off">
 							<div class="panel-body bk-bg-very-light-gray">
 								<div class="row bk-fg-gray">
-									<div class="col-lg-5 col-md-6 col-sm-6 col-xs-6">
+									<div class="margin-r-10 margin-l-10">
 										<h3
-											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">1,958</h3>
-										DOWNLOAD
-									</div>
-									<div class="col-lg-7 col-md-6 col-sm-6 col-xs-6">
-										<div class="small-chart-wrapper bk-padding-right-40">
-											<div class="small-chart" id="sparklineLineDownload"></div>
-											<script type="text/javascript">
-												var sparklineLineDownloadData = [
-														19, 5, 25, 40, 35, 90,
-														60, 70, 30, 15, 80, 90 ];
-											</script>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading bk-bg-white">
-								<h6>
-									<span class="label label-danger bk-margin-5">165</span>Friends
-								</h6>
-								<div class="panel-actions">
-									<a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
-									<a href="#" class="btn-close"><i class="fa fa-times"></i></a>
-								</div>
-							</div>
-							<div class="panel-body bk-noradius">
-								<a class="bk-bg-white bk-padding-off-top bk-padding-off-bottom">
-									<div class="row">
-										<div class="col-xs-3 bk-vcenter text-center bk-padding-10">
-											<div class="bk-avatar">
-												<img src="assets/img/avatar1.jpg" alt=""
-													class="img-circle bk-img-40 bk-border-primary bk-border-2x bk-border-darken">
-											</div>
-										</div>
-										<div class="col-xs-9 bk-vcenter">
-											<h5 class="bk-fg-primary bk-fg-darken bk-margin-off-bottom">John
-												Doe</h5>
-											<p>Nullam vitae arcu in leo molestie hendrerit at quis
-												sem.</p>
-										</div>
-									</div>
-								</a>
-								<hr class="bk-margin-off">
-								<a class="bk-bg-white bk-padding-off-top bk-padding-off-bottom">
-									<div class="row">
-										<div class="col-xs-3 bk-vcenter text-center bk-padding-10">
-											<div class="bk-avatar">
-												<img src="assets/img/avatar2.jpg" alt=""
-													class="img-circle bk-img-40 bk-border-warning bk-border-2x bk-border-darken">
-											</div>
-										</div>
-										<div class="col-xs-9 bk-vcenter">
-											<h5 class="bk-fg-warning bk-fg-darken bk-margin-off-bottom">John
-												Doe</h5>
-											<p>Nunc vitae porttitor purus.</p>
-										</div>
-									</div>
-								</a>
-								<hr class="bk-margin-off">
-								<a class="bk-bg-white bk-padding-off-top bk-padding-off-bottom">
-									<div class="row">
-										<div class="col-xs-3 bk-vcenter text-center bk-padding-10">
-											<div class="bk-avatar">
-												<img src="assets/img/avatar2.jpg" alt=""
-													class="img-circle bk-img-40 bk-border-danger bk-border-2x bk-border-darken">
-											</div>
-										</div>
-										<div class="col-xs-9 bk-vcenter">
-											<h5 class="bk-fg-danger bk-fg-darken bk-margin-off-bottom">John
-												Doe</h5>
-											<p>Morbi interdum posuere ultricies. Aliquam sit amet
-												neque nisi.</p>
-										</div>
-									</div>
-								</a>
-								<hr class="bk-margin-off">
-							</div>
-							<div class="panel-footer bk-bg-white">
-								<div class="bk-padding-top-5 bk-padding-bottom-5 ">
-									<div class="row">
-										<div class="col-xs-6">
-											<a href="#" class="bk-fg-textcolor"><small><i
-													class="fa fa-angle-left"></i> PREVIOUS</small></a>
-										</div>
-										<div class="col-xs-6 text-right">
-											<a href="#" class="bk-fg-textcolor"><small>NEXT <i
-													class="fa fa-angle-right"></i></small></a>
-										</div>
+											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
+										操作
 									</div>
 								</div>
 							</div>
@@ -634,10 +385,8 @@ var context = '<%=path%>
 				<!-- rom end -->
 			</div>
 			<!-- End Main Page -->
-
 			<!-- Footer -->
 			<!-- End Footer -->
-
 		</div>
 	</div>
 	<!--/container-->
