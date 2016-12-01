@@ -1,5 +1,6 @@
 package com.rd.management.api.service.admin;
 
+import com.raindrop.common.exception.AppException;
 import com.rd.management.api.entity.admin.Master;
 
 /**
@@ -26,4 +27,7 @@ public interface MasterService {
 	Master queryByCode(String code);
 
 	boolean checkLogin(String account, String password) throws Exception;
+
+	int updateByMasterInfo(Master master) throws AppException;
+
 }

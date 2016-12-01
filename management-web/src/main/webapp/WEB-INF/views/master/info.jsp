@@ -18,11 +18,11 @@
 var context = '<%=path%>';
 </script>
 <script src="../js/pages/page-login.js"></script>
+<script src="../js/pages/form-elements.js"></script>
 <!-- end: JavaScript-->
 </head>
 
 <body>
-
 	<!-- Start: Header -->
 	<div class="navbar" role="navigation">
 		<div class="container-fluid container-nav">
@@ -163,7 +163,8 @@ var context = '<%=path%>';
 							<ul class="nav nav-sidebar">
 								<div class="panel-body text-center">
 									<div class="flag">
-										<img src="../images/flags/CHINA.jpg" class="img-flags width-65" alt="" />
+										<img src="../images/flags/CHINA.jpg"
+											class="img-flags width-65" alt="" />
 									</div>
 								</div>
 								<li class="nav-parent nav-expanded active"><a> <i
@@ -316,7 +317,10 @@ var context = '<%=path%>';
 															<label for="profileLastName">性别：</label>${master.sex==0?'保密': ''}${master.sex==1?'男': ''}${master.sex==2?'女': ''}
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">创建时间：</label><fmt:formatDate value="${master.createTime!=null?master.createTime:'N/A'}" type="both" pattern="yyyy年MM月dd日  HH:mm:ss "/>
+															<label for="profileLastName">创建时间：</label>
+															<fmt:formatDate
+																value="${master.createTime!=null?master.createTime:'N/A'}"
+																type="both" pattern="yyyy年MM月dd日  HH:mm:ss " />
 														</div>
 														<div class="form-group">
 															<label for="profileLastName">上次登录时间：</label>${master.lastTime!=null?master.lastTime:'N/A'}
@@ -332,7 +336,82 @@ var context = '<%=path%>';
 																<div class="pull-center">
 																	<button type="up-head" class="btn btn-primary">上传头像</button>
 																	<button type="c-password" class="btn btn-success">修改密码</button>
-																	<button type="c-info" class="btn btn-info">修改个人信息</button>
+																	<a type="c-info"
+																		class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-info"
+																		href="#modalInfoForm">修改个人信息</a>
+																	<!-- Modal Form -->
+																	<div id="modalInfoForm"
+																		class="modal-block modal-block-primary mfp-hide">
+																		<div class="panel panel-default">
+																			<div class="panel-heading">
+																				<h2 class="panel-title">修改个人信息</h2>
+																			</div>
+																			<div class="panel-body bk-noradius">
+																				<form id="demo-form" class="form-horizontal mb-lg"
+																					novalidate="novalidate">
+																					<div class="form-group mt-lg">
+																						<label class="col-sm-3 control-label">用户名</label>
+																						<div class="col-sm-9">
+																							<input type="text" name="name"
+																								class="form-control"
+																								placeholder="${master.userName!=null?master.userName:'N/A'}"
+																								required />
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-3 control-label">手机号码</label>
+																						<div class="col-sm-9">
+																							<input type="email" name="email"
+																								class="form-control"
+																								placeholder="${master.phone!=null?master.phone:'N/A'}"
+																								required />
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-3 control-label">电子邮箱</label>
+																						<div class="col-sm-9">
+																							<input type="email" name="email"
+																								class="form-control"
+																								placeholder="${master.email!=null?master.email:'N/A'}"
+																								required />
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-3 control-label">性别</label>
+																						<div class="col-sm-9">
+																							<select id="select" name="select"
+																								class="form-control" size="1">
+																								<c:forEach var="type" items="${sexType}">
+																									<c:if test="${type.index!=3}">
+																										<option value="${type.index}">${type.name}</option>
+																									</c:if>
+																								</c:forEach>
+																							</select>
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-3 control-label">出生日期</label>
+																						<div class="col-sm-9">
+																							<div class="input-group">
+																								<span class="input-group-addon"> <i
+																									class="fa fa-calendar"></i>
+																								</span> <input type="text" data-plugin-datepicker
+																									class="form-control" />
+																							</div>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																			<div class="panel-footer">
+																				<div class="row">
+																					<div class="col-md-12 text-right">
+																						<button class="btn btn-primary modal-confirm">确定</button>
+																						<button class="btn btn-default modal-dismiss">取消</button>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
 																</div>
 															</div>
 														</div>
@@ -391,9 +470,7 @@ var context = '<%=path%>';
 	</div>
 	<!--/container-->
 
-
 	<div class="clearfix"></div>
-
 </body>
 
 <%@ include file="/common/head-material_js.jsp"%>

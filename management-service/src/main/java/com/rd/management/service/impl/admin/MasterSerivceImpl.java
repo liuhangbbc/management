@@ -3,6 +3,7 @@ package com.rd.management.service.impl.admin;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.raindrop.common.exception.AppException;
@@ -92,4 +93,10 @@ public class MasterSerivceImpl implements MasterService {
 		}
 		return master;
 	}
+
+	@Transactional
+	public int updateByMasterInfo(Master master) throws AppException {
+		return masterDao.updateByMasterInfo(master);
+	}
+
 }

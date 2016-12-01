@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.rd.management.api.entity.admin.Master;
+import com.rd.management.api.enums.admin.masterSexEnum;
 import com.rd.management.api.service.admin.MasterService;
 
 /**
@@ -40,5 +41,17 @@ public class daoTest {
 		} catch (Exception e) {
 			logger.info("masterDao error ===>>> " + e.getMessage());
 		}
+	}
+
+	@Test
+	public void masterUpdateTest() {
+		Master master = new Master();
+		master.setId(1L);
+		master.setSex(masterSexEnum.MAN.getIndex());
+		logger.info("method masterUpdateTest get master reuslt ===>>> "
+				+ master.toString());
+		int r = masterService.updateByMasterInfo(master);
+		logger.info("method masterUpdateTest get r reuslt ===>>> " + r);
+
 	}
 }

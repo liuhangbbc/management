@@ -140,4 +140,40 @@
 		select * from `t_system_master` where code =
 		#{code,jdbcType=VARCHAR}
 	</select>
+
+	<update id="updateByMasterInfo" parameterType="com.rd.management.api.entity.admin.Master">
+		UPDATE `t_system_master`
+		<set>
+			<trim prefix="" suffix="" suffixOverrides=",">
+				<if test="account != null">
+					account = #{account,jdbcType=VARCHAR},
+				</if>
+				<if test="userName != null">
+					user_name = #{userName,jdbcType=VARCHAR},
+				</if>
+				<if test="birth != null">
+					birth = #{birth,jdbcType=TIMESTAMP},
+				</if>
+				<if test="sex != null">
+					sex = #{sex,jdbcType=INTEGER},
+				</if>
+				<if test="phone != null">
+					phone = #{phone,jdbcType=VARCHAR},
+				</if>
+				<if test="email != null">
+					e_mail = #{email,jdbcType=VARCHAR},
+				</if>
+				<if test="remark != null">
+					remark = #{remark,jdbcType=VARCHAR},
+				</if>
+			</trim>
+		</set>
+		WHERE 1=1
+		<if test="id != null">
+			AND id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="code != null">
+			AND code = #{code,jdbcType=VARCHAR}
+		</if>
+	</update>
 </mapper>
