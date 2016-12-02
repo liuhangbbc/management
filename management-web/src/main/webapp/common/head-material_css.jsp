@@ -42,6 +42,7 @@
 <link href="../assets/plugins/jqvmap/jqvmap.css" rel="stylesheet" />	
 <link href="../assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
 <link href="../assets/plugins/bootstrap-datepicker/css/datepicker-theme.css" rel="stylesheet" />
+<link href="../assets/plugins/pnotify/css/pnotify.custom.css" rel="stylesheet" />
 
 <!-- Theme CSS -->
 <link href="../css/jquery.mmenu.css" rel="stylesheet" />

@@ -31,11 +31,11 @@
 <script src="../assets/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
 <script src="../assets/plugins/sparkline/js/jquery.sparkline.min.js"></script>		
 <script src="../assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="../assets/plugins/pnotify/js/pnotify.custom.js"></script>
 
 <!-- Theme JS -->
 <script src="../js/jquery.mmenu.min.js"></script>
 <script src="../js/core.min.js"></script>
-<script src="../js/base.js"></script>
 
 <!-- end: JavaScript-->
 

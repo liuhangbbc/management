@@ -3057,6 +3057,7 @@ border-radius: 0;
 /* Datepicker
 =================================================================== */
 .datepicker {
+z-index: 9999; 
 border-radius: 4px;
 }
 /* Tag Autocomplete

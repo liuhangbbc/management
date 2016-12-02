@@ -19,3 +19,6 @@
 .width-65{
 	width: 65px;
 }
+.up-model{
+	z-index: 9999;
+}

@@ -11,15 +11,6 @@
 <title>综合管理</title>
 <%@ include file="/common/head-base.jsp"%>
 <%@ include file="/common/head-material_css.jsp"%>
-
-<!-- start: JavaScript-->
-<!-- Pages JS -->
-<script type="text/javascript">
-var context = '<%=path%>';
-</script>
-<script src="../js/pages/page-login.js"></script>
-<script src="../js/pages/form-elements.js"></script>
-<!-- end: JavaScript-->
 </head>
 
 <body>
@@ -472,6 +463,12 @@ var context = '<%=path%>';
 
 	<div class="clearfix"></div>
 </body>
-
 <%@ include file="/common/head-material_js.jsp"%>
+<!-- start: JavaScript-->
+<!-- Pages JS -->
+<script type="text/javascript">
+var context = '<%=path%>';
+</script>
+<script src="../js/pages/page-master-info.js"></script>
+<!-- end: JavaScript-->
 </html>
