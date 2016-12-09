@@ -22,3 +22,12 @@
 .up-model{
 	z-index: 9999;
 }
+.ui-screen-top{
+	z-index: 999999;
+}
+.ui-f-left{
+	float: left;
+}
+.ui-f-right{
+	float: right;
+}

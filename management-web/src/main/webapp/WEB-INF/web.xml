@@ -37,6 +37,10 @@
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 
+	<!-- session 监听器 -->
+	<listener>
+		<listener-class>com.rd.management.core.listener.DefaultSessionListener</listener-class>
+	</listener>
 	<servlet>
 		<description>spring mvc servlet</description>
 		<servlet-name>rest</servlet-name>
@@ -58,28 +62,28 @@
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
-  <error-page>
-    <exception-type>java.lang.Throwable</exception-type>
-    <location>/common/500</location>
-  </error-page>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/common/500</location>
-  </error-page>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/common/404</location>
-  </error-page>
-  <error-page>
-    <error-code>403</error-code>
-    <location>/common/403</location>
-  </error-page>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/common/500</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/common/500</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/common/404</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/common/403</location>
+	</error-page>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

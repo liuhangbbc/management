@@ -51,6 +51,7 @@
 <link href="../css/style.css" rel="stylesheet" />
 <link href="../css/base.css" rel="stylesheet" />
 <link href="../css/add-ons.min.css" rel="stylesheet" />
+<link href="../css/jquery.Jcrop.min.css" rel="stylesheet" />
 
 <!-- end: CSS file-->
 

@@ -1,5 +1,7 @@
 package com.rd.management.service.dao.admin;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.rd.management.api.entity.admin.Master;
 
 /**
@@ -37,4 +39,7 @@ public interface MasterDao {
 
 	// 改变冻结状态
 	int changeFrozenStatus(Master master);
+
+	int updateMasterPwdByInfo(@Param("master") Master master,
+			@Param("password") String password);
 }

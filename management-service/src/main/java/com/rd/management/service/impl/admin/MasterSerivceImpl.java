@@ -24,6 +24,7 @@ import com.rd.management.service.dao.admin.MasterDao;
  *
  */
 @Service("masterService")
+@Transactional(rollbackFor = Exception.class)
 public class MasterSerivceImpl implements MasterService {
 	private final Logger logger = Logger.getLogger(this.getClass());
 
@@ -94,9 +95,38 @@ public class MasterSerivceImpl implements MasterService {
 		return master;
 	}
 
-	@Transactional
 	public int updateByMasterInfo(Master master) throws AppException {
 		return masterDao.updateByMasterInfo(master);
+	}
+
+	public int updateMasterPwdByInfo(Master master, String password)
+			throws Exception {
+		logger.info("========>>>>>>> 密码加密 encrypt password <<<<<<<========");
+		return masterDao.updateMasterPwdByInfo(
+				master,
+				Base64Utils.encode(
+						RSAUtils.encryptByPublicKey(password.trim().getBytes(),
+								rsaApp.getPublickey().trim())).trim());
+	}
+
+	public int updateMasterPwdByCode(String code, String newPwd)
+			throws Exception {
+		Master master = new Master();
+		master.setCode(code);
+		return updateMasterPwdByInfo(master, newPwd);
+	}
+
+	public int updateMasterPwdByAccount(String account, String newPwd)
+			throws Exception {
+		Master master = new Master();
+		master.setAccount(account);
+		return updateMasterPwdByInfo(master, newPwd);
+	}
+
+	public int updateMasterPwdById(long id, String newPwd) throws Exception {
+		Master master = new Master();
+		master.setId(id);
+		return updateMasterPwdByInfo(master, newPwd);
 	}
 
 }

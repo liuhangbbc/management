@@ -176,4 +176,20 @@
 			AND code = #{code,jdbcType=VARCHAR}
 		</if>
 	</update>
+	<update id="updateMasterPwdByInfo">
+		UPDATE `t_system_master`
+		<set>
+			password = #{password,jdbcType=VARCHAR}
+		</set>
+		WHERE 1=1
+		<if test="master.id != null">
+			AND id = #{master.id,jdbcType=BIGINT}
+		</if>
+		<if test="master.code != null">
+			AND code = #{master.code,jdbcType=VARCHAR}
+		</if>
+		<if test="master.account != null">
+			AND account = #{master.account,jdbcType=VARCHAR}
+		</if>
+	</update>
 </mapper>

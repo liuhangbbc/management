@@ -12,12 +12,6 @@ import com.rd.management.api.entity.admin.Master;
  *
  */
 public interface MasterService {
-	/**
-	 * 新增管理员
-	 * 
-	 * @param master
-	 * @return
-	 */
 	long insertMaster(Master master) throws Exception;
 
 	Master queryById(Long id);
@@ -29,5 +23,14 @@ public interface MasterService {
 	boolean checkLogin(String account, String password) throws Exception;
 
 	int updateByMasterInfo(Master master) throws AppException;
+
+	int updateMasterPwdByInfo(Master master, String password) throws Exception;
+
+	int updateMasterPwdByCode(String code, String newPwd) throws Exception;
+
+	int updateMasterPwdByAccount(String account, String newPwd)
+			throws Exception;
+
+	int updateMasterPwdById(long id, String newPwd) throws Exception;
 
 }

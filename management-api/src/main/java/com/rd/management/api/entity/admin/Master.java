@@ -3,6 +3,12 @@ package com.rd.management.api.entity.admin;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.rd.management.api.enums.admin.masterSexEnum;
+
 /**
  * 
  * @ClassName: Master
@@ -11,6 +17,7 @@ import java.util.Date;
  * @date 2016年9月18日 下午2:30:06
  *
  */
+@JsonInclude(Include.NON_NULL)
 public class Master implements Serializable {
 	/**
 	 * 序列化
@@ -31,6 +38,7 @@ public class Master implements Serializable {
 	/**
 	 * 密码
 	 */
+	@JsonIgnore
 	private String password;
 	/**
 	 * 用户名
@@ -39,6 +47,7 @@ public class Master implements Serializable {
 	/**
 	 * 出生日期
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
 	/**
 	 * 性别
@@ -59,10 +68,12 @@ public class Master implements Serializable {
 	/**
 	 * 创建时间
 	 */
+	@JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss")
 	private Date createTime;
 	/**
 	 * 上次登录时间
 	 */
+	@JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss")
 	private Date lastTime;
 	/**
 	 * 是否登录(全局控制)
@@ -76,6 +87,12 @@ public class Master implements Serializable {
 	 * 备注
 	 */
 	private String remark;
+
+	/**
+	 * 返回性别筛选字符串
+	 */
+	@SuppressWarnings("unused")
+	private String sexStr;
 
 	public Master() {
 		super();
@@ -201,12 +218,19 @@ public class Master implements Serializable {
 		this.remark = remark;
 	}
 
+	public String getSexStr() {
+		return masterSexEnum.getName(sex);
+	}
+
 	@Override
 	public String toString() {
-		return "Master [id=" + id + ", code=" + code + ", account=" + account + ", password=" + password + ", userName="
-				+ userName + ", birth=" + birth + ", sex=" + sex + ", phone=" + phone + ", email=" + email
-				+ ", headImage=" + headImage + ", createTime=" + createTime + ", lastTime=" + lastTime + ", isLand="
-				+ isLand + ", isFrozen=" + isFrozen + ", remark=" + remark + "]";
+		return "Master [id=" + id + ", code=" + code + ", account=" + account
+				+ ", password=" + password + ", userName=" + userName
+				+ ", birth=" + birth + ", sex=" + sex + ", phone=" + phone
+				+ ", email=" + email + ", headImage=" + headImage
+				+ ", createTime=" + createTime + ", lastTime=" + lastTime
+				+ ", isLand=" + isLand + ", isFrozen=" + isFrozen + ", remark="
+				+ remark + "]";
 	}
 
 }

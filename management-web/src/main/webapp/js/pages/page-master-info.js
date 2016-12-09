@@ -1,6 +1,19 @@
 $(function() {
+	var map = {};
+	var masterId = $('span[data-init-name="id"]').text();
+	var masterCode = $('span[data-init-name="code"]').text();
+	map['id'] = masterId;
+	map['code'] = masterCode;
+
+	// 初始化 模态表单
+	initModelForm();
+	// 初始化 日历控件
+	initDatepicker({});
+	// 初始化提示控件
+	initPNotify();
+
 	/*
-	 * Modal Dismiss
+	 * Modal Dismiss 模态表单-取消
 	 */
 	$(document).on('click', '.modal-dismiss', function(e) {
 		e.preventDefault();
@@ -8,144 +21,163 @@ $(function() {
 	});
 
 	/*
-	 * Modal Confirm
+	 * 个人信息修改
 	 */
-	$(document).on('click', '.modal-confirm', function(e) {
-		e.preventDefault();
-		$.magnificPopup.close();
-
-		new PNotify({
-			title : 'Success!',
-			text : 'Modal Confirm Message.',
-			type : 'success'
+	$('#infoConfirm').on('click', function(e) {
+		$('[data-form-info]').each(function() {
+			if ($(this).val()) {
+				map[$(this).attr('data-form-info')] = $(this).val();
+			}
 		});
+		console.info('page init confirm > #map# result : ' + map);
+		updateInfo(map, e);
+
 	});
+
 	/*
-	 * Form
+	 * 修改密码
 	 */
-	$('.modal-with-form').magnificPopup({
-		type : 'inline',
-		preloader : false,
-		focus : '#name',
-		modal : true,
-
-		// When elemened is focused, some mobile browsers in some cases zoom in
-		// It looks not nice, so we disable it:
-		callbacks : {
-			beforeOpen : function() {
-				if ($(window).width() < 700) {
-					this.st.focus = false;
-				} else {
-					this.st.focus = '#name';
-				}
+	$('#pwdConfirm').on('click', function(e) {
+		$('[data-form-pwd]').each(function() {
+			if ($(this).val()) {
+				map[$(this).attr('data-form-pwd')] = $(this).val();
 			}
-		}
+		});
+		console.info('page init confirm > #map# result : ' + map);
+		updatePwd(map, e);
+
 	});
-	
 });
-/* 
-Datepicker
-*/
-(function( $ ) {
 
-	'use strict';
-
-	if ( $.isFunction($.fn[ 'datepicker' ]) ) {
-
-		$(function() {
-			$('[data-plugin-datepicker]').each(function() {
-				var $this = $( this ),
-					opts = {};
-
-				var pluginOptions = $this.data('plugin-options');
-				if (pluginOptions)
-					opts = pluginOptions;
-
-				$this.themePluginDatePicker(opts);
-			});
-		});
-
-	}
-
-}).apply(this, [ jQuery ]);
-
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__datepicker';
-
-	var PluginDatePicker = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginDatePicker.defaults = {
-	};
-
-	PluginDatePicker.prototype = {
-		initialize: function($el, opts) {
-			if ( $el.data( instanceName ) ) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setVars()
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
+// 修改个人信息
+function updateInfo(map, e) {
+	$.ajax({
+		url : 'updateInfo',
+		type : 'POST', // GET
+		async : false, // 或false,是否异步
+		data : {
+			master : JSON.stringify(map)
 		},
-
-		setVars: function() {
-			this.skin = this.$el.data( 'plugin-skin' );
-
-			return this;
+		dataType : 'json', // 返回的数据格式：json/xml/html/script/jsonp/text
+		beforeSend : function(data) {
+			// 发送ajax前
 		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend( true, {}, PluginDatePicker.defaults, opts );
-
-			return this;
-		},
-
-		build: function() {
-			this.$el.datepicker( this.options );
-
-			if ( !!this.skin ) {
-				this.$el.data('datepicker').picker.addClass( 'datepicker-' + this.skin );
-				console.info('asd');
-			}
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginDatePicker: PluginDatePicker
-	});
-
-	// jquery plugin
-	$.fn.themePluginDatePicker = function(opts) {
-		return this.each(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
+		success : function(data) {
+			// 发送成功，处理成功
+			e.preventDefault();
+			$.magnificPopup.close();
+			if (data.success) {
+				new PNotify({
+					title : '成功！',
+					text : '表单提交信息成功',
+					type : 'success'
+				});
+				changPageInfo();
 			} else {
-				return new PluginDatePicker($this, opts);
+				new PNotify({
+					title : '警告！',
+					text : '表单提交出现问题',
+					type : 'warning'
+				});
 			}
+		},
+		error : function(data) {
+			// 发送失败,处理失败
+			new PNotify({
+				title : '错误！',
+				text : '表单提交失败',
+				type : 'error'
+			});
+		},
+		complete : function() {
+			// ajax结束后
+		}
+	});
+}
 
-		});
-	}
+// 修改密码
+function updatePwd(map, e) {
+	$.ajax({
+		url : 'changePwd',
+		type : 'POST', // GET
+		async : false, // 或false,是否异步
+		data : {
+			map : JSON.stringify(map)
+		},
+		dataType : 'json', // 返回的数据格式：json/xml/html/script/jsonp/text
+		beforeSend : function(data) {
+			// 发送ajax前
+		},
+		success : function(data) {
+			// 发送成功，处理成功
+			if (data.success) {
+				e.preventDefault();
+				$.magnificPopup.close();
+				new PNotify({
+					title : '成功！',
+					text : '表单提交信息成功',
+					type : 'success'
+				});
+			} else {
+				new PNotify({
+					title : '警告！',
+					text : data.errorMsg,
+					type : 'warning'
+				});
+				$('.ui-pnotify').addClass('ui-screen-top');
+			}
+		},
+		error : function(data) {
+			// 发送失败,处理失败
+			new PNotify({
+				title : '错误！',
+				text : '表单提交失败',
+				type : 'error'
+			});
+		},
+		complete : function() {
+			// ajax结束后
+		}
+	});
+}
 
-}).apply(this, [ window.theme, jQuery ]);
+// 上传头像
+function upHead() {
+
+}
+
+// 重置页面数据
+function changPageInfo() {
+	$.ajax({
+		url : 'info2',
+		type : 'GET', // GET
+		async : false, // 或false,是否异步
+		dataType : 'json', // 返回的数据格式：json/xml/html/script/jsonp/text
+		success : function(data) {
+			if (data.success) {
+				// 发送成功，处理成功
+				console.info("data back result sucess , deal sucess ");
+				var master = data.msg;
+				for ( var key in master) {
+					var result = master[key];
+					$('span[data-init-name="' + key + '"]').text(result);
+					console.info('master key : ' + key + ' , result : '
+							+ result + ' , item key : '
+							+ $('span[data-init-name="' + key + '"]'));
+
+					$('[data-form-name="' + key + '"]').val(result);
+					console.info('master key : ' + key + ' , result : '
+							+ result + ' , item key : '
+							+ $('[data-form-name="' + key + '"]'));
+				}
+			} else {
+				// 发送成功，处理失败
+				console.info("data back result sucess , deal fault ");
+			}
+		},
+		error : function(data) {
+			// 发送失败
+			console.info("data back result error ");
+		}
+	});
+}

@@ -106,7 +106,7 @@
 								class="img-circle" alt="" />
 						</figure>
 						<div class="profile-info">
-							<span class="name">${master.userName!=null?master.userName:'N/A'}</span>
+							<span class="name">${master.userName!=null?master.userName:''}</span>
 							<span class="role"><i
 								class="fa fa-circle bk-fg-success  margin-r-03"></i>管理员</span>
 						</div> <i class="fa custom-caret"></i>
@@ -221,7 +221,7 @@
 													alt=""
 													class="img-circle bk-img-120 bk-border-light-gray bk-border-3x" />
 											</div>
-											<h4 class="bk-margin-top-10 bk-docs-font-weight-300">${master.userName!=null?master.userName:'N/A'}</h4>
+											<h4 class="bk-margin-top-10 bk-docs-font-weight-300">${master.userName!=null?master.userName:''}</h4>
 										</div>
 										<hr class="bk-margin-off" />
 										<div
@@ -260,13 +260,13 @@
 									<div class="row">
 										<div
 											class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
-											<i class="fa fa-tablet margin-r-03"></i>
-											${master.phone!=null?master.phone:'N/A'}
+											<i class="fa fa-tablet margin-r-03"></i> <span
+												data-init-name="phone">${master.phone!=null?master.phone:''}</span>
 										</div>
 										<div
 											class="col-12-4 col-md-12 col-sm-12 col-xs-12 bk-bg-white bk-padding-top-10">
-											<i class="fa fa-envelope margin-r-03"></i>
-											${master.email!=null?master.email:'N/A'}
+											<i class="fa fa-envelope margin-r-03"></i> <span
+												data-init-name="email">${master.email!=null?master.email:''}</span>
 										</div>
 									</div>
 								</div>
@@ -290,34 +290,46 @@
 													<h4>个人信息</h4>
 													<fieldset>
 														<div class="form-group">
-															<label for="profileFirstName">用户 id：</label>${master.id!=null?master.id:'N/A'}
+															<label for="profileFirstName">用户 id：</label><span
+																data-init-name="id">${master.id!=null?master.id:''}</span>
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">标识号码：</label>${master.code!=null?master.code:'N/A'}
+															<label for="profileLastName">标识号码：</label><span
+																data-init-name="code">${master.code!=null?master.code:''}</span>
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">用户账号：</label>${master.account!=null?master.account:'N/A'}
+															<label for="profileLastName">用户账号：</label><span
+																data-init-name="account">${master.account!=null?master.account:''}</span>
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">用户名称：</label>${master.userName!=null?master.userName:'N/A'}
+															<label for="profileLastName">用户名称：</label><span
+																data-init-name="userName">${master.userName!=null?master.userName:''}</span>
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">出生日期：</label>${master.birth!=null?master.birth:'保密'}
+															<label for="profileLastName">出生日期：</label><span
+																data-init-name="birth"><c:if
+																	test="${master.birth!=null}">
+																	<fmt:formatDate value="${master.birth}"
+																		pattern="yyyy-MM-dd" />
+																</c:if> <c:if test="${master.birth==null}">保密</c:if></span>
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">性别：</label>${master.sex==0?'保密': ''}${master.sex==1?'男': ''}${master.sex==2?'女': ''}
+															<label for="profileLastName">性别：</label><span
+																data-init-name="sexStr">${master.sex==0?'保密': ''}${master.sex==1?'男': ''}${master.sex==2?'女': ''}</span>
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">创建时间：</label>
-															<fmt:formatDate
-																value="${master.createTime!=null?master.createTime:'N/A'}"
-																type="both" pattern="yyyy年MM月dd日  HH:mm:ss " />
+															<label for="profileLastName">创建时间：</label><span
+																data-init-name="createTime"> <fmt:formatDate
+																	value="${master.createTime!=null?master.createTime:''}"
+																	type="both" pattern="yyyy年MM月dd日  HH:mm:ss " /></span>
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">上次登录时间：</label>${master.lastTime!=null?master.lastTime:'N/A'}
+															<label for="profileLastName">上次登录时间：</label><span
+																data-init-name="lastTime">${master.lastTime!=null?master.lastTime:''}</span>
 														</div>
 														<div class="form-group">
-															<label for="profileLastName">备注：</label>${master.remark!=null0?master.remark: 'N/A'}
+															<label for="profileLastName">备注：</label><span
+																data-init-name="remark">${master.remark!=null0?master.remark: ''}</span>
 													</fieldset>
 													<hr class="bk-margin-off" />
 													<h4>信息管理</h4>
@@ -325,8 +337,106 @@
 														<div class="row">
 															<div class="col-md-12">
 																<div class="pull-center">
-																	<button type="up-head" class="btn btn-primary">上传头像</button>
-																	<button type="c-password" class="btn btn-success">修改密码</button>
+																	<a type="up-head"
+																		class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-primary"
+																		href="#modalHeadForm">上传头像</a>
+																	<!-- Modal Form -->
+																	<div id="modalHeadForm"
+																		class="modal-block modal-block-primary mfp-hide">
+																		<div class="panel panel-default">
+																			<div class="panel-heading">
+																				<h2 class="panel-title">修改密码</h2>
+																			</div>
+																			<div class="panel-body bk-noradius">
+																				<div
+																					class="progress progress-xs light progress-striped active">
+																					<div class="progress-bar progress-bar-info"
+																						role="progressbar" aria-valuenow="100"
+																						aria-valuemin="0" aria-valuemax="100"
+																						style="width: 100%;">
+																						<span class="sr-only">100%</span>
+																					</div>
+																				</div>
+																				<form id="demo-form" class="form-horizontal mb-lg"
+																					novalidate="novalidate">
+																					<div class="form-group mt-lg">
+																						<label class="col-sm-3 control-label">原始密码：</label>
+																						<div class="col-sm-9">
+																							<input type="password"
+																								data-form-pwd="originalPwd" class="form-control"
+																								required />
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																			<div class="panel-footer">
+																				<div class="row">
+																					<div class="col-md-12 text-right">
+																						<button class="btn btn-primary ui-f-left">选择图片</button>
+																						<button class="btn btn-primary ui-f-left margin-l-10">上传</button>
+																						<button class="btn btn-default modal-dismiss">取消</button>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<a type="c-info"
+																		class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-success"
+																		href="#modalPwdForm">修改密码</a>
+																	<!-- Modal Form -->
+																	<div id="modalPwdForm"
+																		class="modal-block modal-block-primary mfp-hide">
+																		<div class="panel panel-default">
+																			<div class="panel-heading">
+																				<h2 class="panel-title">修改密码</h2>
+																			</div>
+																			<div class="panel-body bk-noradius">
+																				<div
+																					class="progress progress-xs light progress-striped active">
+																					<div class="progress-bar progress-bar-info"
+																						role="progressbar" aria-valuenow="100"
+																						aria-valuemin="0" aria-valuemax="100"
+																						style="width: 100%;">
+																						<span class="sr-only">100%</span>
+																					</div>
+																				</div>
+																				<form id="demo-form" class="form-horizontal mb-lg"
+																					novalidate="novalidate">
+																					<div class="form-group mt-lg">
+																						<label class="col-sm-3 control-label">原始密码：</label>
+																						<div class="col-sm-9">
+																							<input type="password"
+																								data-form-pwd="originalPwd" class="form-control"
+																								required />
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-3 control-label">新密码：</label>
+																						<div class="col-sm-9">
+																							<input type="password" data-form-pwd="newPwd"
+																								class="form-control" required />
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-3 control-label">重复密码：</label>
+																						<div class="col-sm-9">
+																							<input type="password" data-form-pwd="repeatPwd"
+																								class="form-control" required />
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																			<div class="panel-footer">
+																				<div class="row">
+																					<div class="col-md-12 text-right">
+																						<button id="pwdConfirm"
+																							class="btn btn-primary modal-confirm">确定</button>
+																						<button class="btn btn-default modal-dismiss">取消</button>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
 																	<a type="c-info"
 																		class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-info"
 																		href="#modalInfoForm">修改个人信息</a>
@@ -345,32 +455,32 @@
 																						<div class="col-sm-9">
 																							<input type="text" name="name"
 																								class="form-control"
-																								placeholder="${master.userName!=null?master.userName:'N/A'}"
+																								placeholder="${master.userName!=null?master.userName:''}"
 																								required />
 																						</div>
 																					</div>
 																					<div class="form-group">
 																						<label class="col-sm-3 control-label">手机号码</label>
 																						<div class="col-sm-9">
-																							<input type="email" name="email"
+																							<input type="text" data-form-info="phone"
 																								class="form-control"
-																								placeholder="${master.phone!=null?master.phone:'N/A'}"
+																								placeholder="${master.phone!=null?master.phone:''}"
 																								required />
 																						</div>
 																					</div>
 																					<div class="form-group">
 																						<label class="col-sm-3 control-label">电子邮箱</label>
 																						<div class="col-sm-9">
-																							<input type="email" name="email"
+																							<input type="email" data-form-info="email"
 																								class="form-control"
-																								placeholder="${master.email!=null?master.email:'N/A'}"
+																								placeholder="${master.email!=null?master.email:''}"
 																								required />
 																						</div>
 																					</div>
 																					<div class="form-group">
 																						<label class="col-sm-3 control-label">性别</label>
 																						<div class="col-sm-9">
-																							<select id="select" name="select"
+																							<select id="select" data-form-info="sex"
 																								class="form-control" size="1">
 																								<c:forEach var="type" items="${sexType}">
 																									<c:if test="${type.index!=3}">
@@ -387,7 +497,10 @@
 																								<span class="input-group-addon"> <i
 																									class="fa fa-calendar"></i>
 																								</span> <input type="text" data-plugin-datepicker
-																									class="form-control" />
+																									class="form-control" data-form-info="birth"
+																									data-date-format="yyyy-mm-dd"
+																									value="<fmt:formatDate value="${master.birth}"
+																		pattern="yyyy-MM-dd" />" />
 																							</div>
 																						</div>
 																					</div>
@@ -396,7 +509,8 @@
 																			<div class="panel-footer">
 																				<div class="row">
 																					<div class="col-md-12 text-right">
-																						<button class="btn btn-primary modal-confirm">确定</button>
+																						<button id="infoConfirm"
+																							class="btn btn-primary modal-confirm">确定</button>
 																						<button class="btn btn-default modal-dismiss">取消</button>
 																					</div>
 																				</div>
@@ -467,8 +581,10 @@
 <!-- start: JavaScript-->
 <!-- Pages JS -->
 <script type="text/javascript">
-var context = '<%=path%>';
+var context = '<%=path%>
+	';
 </script>
 <script src="../js/pages/page-master-info.js"></script>
+<script src="../common/js/common-utils.js"></script>
 <!-- end: JavaScript-->
 </html>
