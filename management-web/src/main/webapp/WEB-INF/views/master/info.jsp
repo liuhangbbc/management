@@ -338,181 +338,180 @@
 															<div class="col-md-12">
 																<div class="pull-center">
 																	<a type="up-head"
-																		class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-primary"
+																		class="bk-margin-top-10 bk-margin-bottom-10 modal-with-upload btn btn-primary"
 																		href="#modalHeadForm">上传头像</a>
 																	<!-- Modal Form -->
 																	<div id="modalHeadForm"
-																		class="modal-block modal-block-primary mfp-hide">
+																		class="modal-block modal-block-primary mfp-hide modal-block-700">
 																		<div class="panel panel-default">
 																			<div class="panel-heading">
-																				<h2 class="panel-title">修改密码</h2>
+																				<h2 class="panel-title">上传头像</h2>
 																			</div>
-																			<div class="panel-body bk-noradius">
-																				<div
-																					class="progress progress-xs light progress-striped active">
-																					<div class="progress-bar progress-bar-info"
-																						role="progressbar" aria-valuenow="100"
-																						aria-valuemin="0" aria-valuemax="100"
-																						style="width: 100%;">
-																						<span class="sr-only">100%</span>
-																					</div>
-																				</div>
-																				<form id="demo-form" class="form-horizontal mb-lg"
-																					novalidate="novalidate">
-																					<div class="form-group mt-lg">
-																						<label class="col-sm-3 control-label">原始密码：</label>
-																						<div class="col-sm-9">
-																							<input type="password"
-																								data-form-pwd="originalPwd" class="form-control"
-																								required />
-																						</div>
-																					</div>
-																				</form>
-																			</div>
-																			<div class="panel-footer">
-																				<div class="row">
-																					<div class="col-md-12 text-right">
-																						<button class="btn btn-primary ui-f-left">选择图片</button>
-																						<button class="btn btn-primary ui-f-left margin-l-10">上传</button>
-																						<button class="btn btn-default modal-dismiss">取消</button>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<a type="c-info"
-																		class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-success"
-																		href="#modalPwdForm">修改密码</a>
-																	<!-- Modal Form -->
-																	<div id="modalPwdForm"
-																		class="modal-block modal-block-primary mfp-hide">
-																		<div class="panel panel-default">
-																			<div class="panel-heading">
-																				<h2 class="panel-title">修改密码</h2>
-																			</div>
-																			<div class="panel-body bk-noradius">
-																				<div
-																					class="progress progress-xs light progress-striped active">
-																					<div class="progress-bar progress-bar-info"
-																						role="progressbar" aria-valuenow="100"
-																						aria-valuemin="0" aria-valuemax="100"
-																						style="width: 100%;">
-																						<span class="sr-only">100%</span>
-																					</div>
-																				</div>
-																				<form id="demo-form" class="form-horizontal mb-lg"
-																					novalidate="novalidate">
-																					<div class="form-group mt-lg">
-																						<label class="col-sm-3 control-label">原始密码：</label>
-																						<div class="col-sm-9">
-																							<input type="password"
-																								data-form-pwd="originalPwd" class="form-control"
-																								required />
-																						</div>
-																					</div>
-																					<div class="form-group">
-																						<label class="col-sm-3 control-label">新密码：</label>
-																						<div class="col-sm-9">
-																							<input type="password" data-form-pwd="newPwd"
-																								class="form-control" required />
-																						</div>
-																					</div>
-																					<div class="form-group">
-																						<label class="col-sm-3 control-label">重复密码：</label>
-																						<div class="col-sm-9">
-																							<input type="password" data-form-pwd="repeatPwd"
-																								class="form-control" required />
-																						</div>
-																					</div>
-																				</form>
-																			</div>
-																			<div class="panel-footer">
-																				<div class="row">
-																					<div class="col-md-12 text-right">
-																						<button id="pwdConfirm"
-																							class="btn btn-primary modal-confirm">确定</button>
-																						<button class="btn btn-default modal-dismiss">取消</button>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<a type="c-info"
-																		class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-info"
-																		href="#modalInfoForm">修改个人信息</a>
-																	<!-- Modal Form -->
-																	<div id="modalInfoForm"
-																		class="modal-block modal-block-primary mfp-hide">
-																		<div class="panel panel-default">
-																			<div class="panel-heading">
-																				<h2 class="panel-title">修改个人信息</h2>
-																			</div>
-																			<div class="panel-body bk-noradius">
-																				<form id="demo-form" class="form-horizontal mb-lg"
-																					novalidate="novalidate">
-																					<div class="form-group mt-lg">
-																						<label class="col-sm-3 control-label">用户名</label>
-																						<div class="col-sm-9">
-																							<input type="text" name="name"
-																								class="form-control"
-																								placeholder="${master.userName!=null?master.userName:''}"
-																								required />
-																						</div>
-																					</div>
-																					<div class="form-group">
-																						<label class="col-sm-3 control-label">手机号码</label>
-																						<div class="col-sm-9">
-																							<input type="text" data-form-info="phone"
-																								class="form-control"
-																								placeholder="${master.phone!=null?master.phone:''}"
-																								required />
-																						</div>
-																					</div>
-																					<div class="form-group">
-																						<label class="col-sm-3 control-label">电子邮箱</label>
-																						<div class="col-sm-9">
-																							<input type="email" data-form-info="email"
-																								class="form-control"
-																								placeholder="${master.email!=null?master.email:''}"
-																								required />
-																						</div>
-																					</div>
-																					<div class="form-group">
-																						<label class="col-sm-3 control-label">性别</label>
-																						<div class="col-sm-9">
-																							<select id="select" data-form-info="sex"
-																								class="form-control" size="1">
-																								<c:forEach var="type" items="${sexType}">
-																									<c:if test="${type.index!=3}">
-																										<option value="${type.index}">${type.name}</option>
-																									</c:if>
-																								</c:forEach>
-																							</select>
-																						</div>
-																					</div>
-																					<div class="form-group">
-																						<label class="col-sm-3 control-label">出生日期</label>
-																						<div class="col-sm-9">
-																							<div class="input-group">
-																								<span class="input-group-addon"> <i
-																									class="fa fa-calendar"></i>
-																								</span> <input type="text" data-plugin-datepicker
-																									class="form-control" data-form-info="birth"
-																									data-date-format="yyyy-mm-dd"
-																									value="<fmt:formatDate value="${master.birth}"
-																		pattern="yyyy-MM-dd" />" />
+																			<form id="upload-form" class="form-horizontal mb-lg"
+																				method="post" action="upHead"
+																				enctype="multipart/form-data">
+																				<div class="panel-body bk-noradius">
+																					<div class="form-group mt-lg height-350">
+																						<div>
+																							<input class="margin-b-10" type="file"
+																								name="imgFile" id="fcupload"
+																								onchange="readURL(this);" />
+																							<div class="ui-f-left">
+																								<img alt="" src="" id="cutimg" /> <img
+																									class="height-300" alt=""
+																									src="<%=path%>/images/upload_default_img_b1.jpg"
+																									id="default_upload" />
+																							</div>
+																							<div id="preview-pane"
+																								class="preview-pane ui-f-left margin-l-20">
+																								<img src="" alt="Preview">
 																							</div>
 																						</div>
 																					</div>
-																				</form>
+																			</form>
+																		</div>
+																		<div class="panel-footer">
+																			<div class="row">
+																				<div class="col-md-12 text-right">
+																					<button id="upConfirm"
+																						class="btn btn-primary ui-f-left margin-l-10">上传</button>
+																					<button class="btn btn-default modal-dismiss">取消</button>
+																				</div>
 																			</div>
-																			<div class="panel-footer">
-																				<div class="row">
-																					<div class="col-md-12 text-right">
-																						<button id="infoConfirm"
-																							class="btn btn-primary modal-confirm">确定</button>
-																						<button class="btn btn-default modal-dismiss">取消</button>
+																		</div>
+																	</div>
+																</div>
+																<a type="c-info"
+																	class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-success"
+																	href="#modalPwdForm">修改密码</a>
+																<!-- Modal Form -->
+																<div id="modalPwdForm"
+																	class="modal-block modal-block-primary mfp-hide">
+																	<div class="panel panel-default">
+																		<div class="panel-heading">
+																			<h2 class="panel-title">修改密码</h2>
+																		</div>
+																		<div class="panel-body bk-noradius">
+																			<div
+																				class="progress progress-xs light progress-striped active">
+																				<div class="progress-bar progress-bar-info"
+																					role="progressbar" aria-valuenow="100"
+																					aria-valuemin="0" aria-valuemax="100"
+																					style="width: 100%;">
+																					<span class="sr-only">100%</span>
+																				</div>
+																			</div>
+																			<form id="demo-form" class="form-horizontal mb-lg"
+																				novalidate="novalidate">
+																				<div class="form-group mt-lg">
+																					<label class="col-sm-3 control-label">原始密码：</label>
+																					<div class="col-sm-9">
+																						<input type="password" data-form-pwd="originalPwd"
+																							class="form-control" required />
 																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-3 control-label">新密码：</label>
+																					<div class="col-sm-9">
+																						<input type="password" data-form-pwd="newPwd"
+																							class="form-control" required />
+																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-3 control-label">重复密码：</label>
+																					<div class="col-sm-9">
+																						<input type="password" data-form-pwd="repeatPwd"
+																							class="form-control" required />
+																					</div>
+																				</div>
+																			</form>
+																		</div>
+																		<div class="panel-footer">
+																			<div class="row">
+																				<div class="col-md-12 text-right">
+																					<button id="pwdConfirm"
+																						class="btn btn-primary modal-confirm">确定</button>
+																					<button class="btn btn-default modal-dismiss">取消</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<a type="c-info"
+																	class="bk-margin-top-10 bk-margin-bottom-10 modal-with-form btn btn-info"
+																	href="#modalInfoForm">修改个人信息</a>
+																<!-- Modal Form -->
+																<div id="modalInfoForm"
+																	class="modal-block modal-block-primary mfp-hide">
+																	<div class="panel panel-default">
+																		<div class="panel-heading">
+																			<h2 class="panel-title">修改个人信息</h2>
+																		</div>
+																		<div class="panel-body bk-noradius">
+																			<form id="demo-form" class="form-horizontal mb-lg"
+																				novalidate="novalidate">
+																				<div class="form-group mt-lg">
+																					<label class="col-sm-3 control-label">用户名</label>
+																					<div class="col-sm-9">
+																						<input type="text" name="name"
+																							class="form-control"
+																							placeholder="${master.userName!=null?master.userName:''}"
+																							required />
+																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-3 control-label">手机号码</label>
+																					<div class="col-sm-9">
+																						<input type="text" data-form-info="phone"
+																							class="form-control"
+																							placeholder="${master.phone!=null?master.phone:''}"
+																							required />
+																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-3 control-label">电子邮箱</label>
+																					<div class="col-sm-9">
+																						<input type="email" data-form-info="email"
+																							class="form-control"
+																							placeholder="${master.email!=null?master.email:''}"
+																							required />
+																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-3 control-label">性别</label>
+																					<div class="col-sm-9">
+																						<select id="select" data-form-info="sex"
+																							class="form-control" size="1">
+																							<c:forEach var="type" items="${sexType}">
+																								<c:if test="${type.index!=3}">
+																									<option value="${type.index}">${type.name}</option>
+																								</c:if>
+																							</c:forEach>
+																						</select>
+																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-3 control-label">出生日期</label>
+																					<div class="col-sm-9">
+																						<div class="input-group">
+																							<span class="input-group-addon"> <i
+																								class="fa fa-calendar"></i>
+																							</span> <input type="text" data-plugin-datepicker
+																								class="form-control" data-form-info="birth"
+																								data-date-format="yyyy-mm-dd"
+																								value="<fmt:formatDate value="${master.birth}"
+																		pattern="yyyy-MM-dd" />" />
+																						</div>
+																					</div>
+																				</div>
+																			</form>
+																		</div>
+																		<div class="panel-footer">
+																			<div class="row">
+																				<div class="col-md-12 text-right">
+																					<button id="infoConfirm"
+																						class="btn btn-primary modal-confirm">确定</button>
+																					<button class="btn btn-default modal-dismiss">取消</button>
 																				</div>
 																			</div>
 																		</div>
@@ -522,56 +521,54 @@
 														</div>
 													</div>
 												</div>
-											</form>
 										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-12">
-						<h4>数据信息</h4>
-						<div class="panel bk-widget bk-border-off">
-							<div class="panel-body bk-bg-very-light-gray">
-								<div class="row bk-fg-gray">
-									<div class="margin-r-10 margin-l-10">
-										<h3
-											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
-										等级
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="panel bk-widget bk-border-off">
-							<div class="panel-body bk-bg-very-light-gray">
-								<div class="row bk-fg-gray">
-									<div class="margin-r-10 margin-l-10">
-										<h3
-											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
-										职位
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="panel bk-widget bk-border-off">
-							<div class="panel-body bk-bg-very-light-gray">
-								<div class="row bk-fg-gray">
-									<div class="margin-r-10 margin-l-10">
-										<h3
-											class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
-										操作
+										</form>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- rom end -->
+				<div class="col-lg-3 col-md-12">
+					<h4>数据信息</h4>
+					<div class="panel bk-widget bk-border-off">
+						<div class="panel-body bk-bg-very-light-gray">
+							<div class="row bk-fg-gray">
+								<div class="margin-r-10 margin-l-10">
+									<h3 class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
+									等级
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel bk-widget bk-border-off">
+						<div class="panel-body bk-bg-very-light-gray">
+							<div class="row bk-fg-gray">
+								<div class="margin-r-10 margin-l-10">
+									<h3 class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
+									职位
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel bk-widget bk-border-off">
+						<div class="panel-body bk-bg-very-light-gray">
+							<div class="row bk-fg-gray">
+								<div class="margin-r-10 margin-l-10">
+									<h3 class="bk-margin-off bk-docs-font-weight-300 bk-fg-primary">初始化中...</h3>
+									操作
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- End Main Page -->
-			<!-- Footer -->
-			<!-- End Footer -->
+			<!-- rom end -->
 		</div>
+		<!-- End Main Page -->
+		<!-- Footer -->
+		<!-- End Footer -->
+	</div>
 	</div>
 	<!--/container-->
 
@@ -581,10 +578,9 @@
 <!-- start: JavaScript-->
 <!-- Pages JS -->
 <script type="text/javascript">
-var context = '<%=path%>
-	';
+var context = '<%=path%>';
 </script>
-<script src="../js/pages/page-master-info.js"></script>
 <script src="../common/js/common-utils.js"></script>
+<script src="../js/pages/page-master-info.js"></script>
 <!-- end: JavaScript-->
 </html>

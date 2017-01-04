@@ -39,6 +39,7 @@
 <script src="../js/jquery.mmenu.min.js"></script>
 <script src="../js/core.min.js"></script>
 <script src="../common/js/jquery.Jcrop.min.js"></script>
+<script src="../common/js/ajaxfileupload.js"></script>
 
 <!-- end: JavaScript-->
 

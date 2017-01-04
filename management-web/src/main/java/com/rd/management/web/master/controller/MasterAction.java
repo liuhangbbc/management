@@ -12,7 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -121,7 +123,7 @@ public class MasterAction extends BaseAction {
 		String repeatPwd = (String) json.get("repeatPwd");
 		String code = (String) request.getSession().getAttribute(
 				"master_session");
-		if (code==null){
+		if (code == null) {
 			code = (String) json.get("code");
 		}
 
@@ -159,6 +161,42 @@ public class MasterAction extends BaseAction {
 		}
 		return map;
 
+	}
+
+	@RequestMapping(value = "/upHead", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> upLoadHead(HttpServletRequest request,
+			@RequestParam("imgFile") MultipartFile file)
+			throws Exception {
+		map = new HashMap<String, Object>();
+
+		Long id = (Long) request.getSession().getAttribute("masterId");
+		String code = (String) request.getSession().getAttribute("masterCode");
+		String sessionCode = (String) request.getSession().getAttribute(
+				"master_session");
+
+		Map<String, Object> data = JSONObject.parseObject((String) request
+				.getParameter("param"));
+		
+		map.put(SUCCESS, false);
+		if (file.isEmpty()) {
+			map.put(ERRORCODE, "10012");
+			map.put(ERRORMSG, "文件上传失败");
+		} else if (id == null && StringUtils.isEmpty(code)
+				&& StringUtils.isEmpty(sessionCode)) {
+			map.put(ERRORCODE, "10006");
+			map.put(ERRORMSG, "未找到相应code或id信息");
+		} else {
+			map.put(SUCCESS, true);
+			logger.info("get file info >> file name : " + file.getName()
+					+ " , file oraginal file name : "
+					+ file.getOriginalFilename() + " , get file size : "
+					+ file.getSize() + " byte");
+			masterManage.saveFile(file,data);
+
+			logger.info("========>>>>>>> 文件上传成功 <<<<<<<========");
+		}
+		return map;
 	}
 
 	public static void main(String[] args) {
