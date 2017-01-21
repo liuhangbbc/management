@@ -1,4 +1,6 @@
 var jcrop_api, imageWidth, imageHeight;
+var cutX, cutY, cutWidth, cutHeight;
+var stack_bar_bottom = {"dir1": "up", "dir2": "right", "spacing1": 0, "spacing2": 0};
 $(function() {
 	var map = {};
 	var masterId = $('span[data-init-name="id"]').text();
@@ -75,17 +77,49 @@ $(function() {
 	 * 上传头像
 	 */
 	$('#upConfirm').on('click', function(e) {
+		if (!$('#fcupload').val()) {
+			var notice = new PNotify({
+				title: '上传失败',
+				text: '未选择上传图片，请重新上传~',
+				type: 'error',
+				addclass: 'stack-bar-bottom',
+				stack: stack_bar_bottom,
+				width: "70%"
+			});
+			$('.ui-pnotify').addClass('ui-screen-top');
+			return;
+		}
+		var param = '';
+		param += cutX + ',';
+		param += cutY + ',';
+		param += cutWidth + ',';
+		param += cutHeight;
 		$.ajaxFileUpload({
-			url : 'upHead',
+			url : 'upImage',
 			secureuri : false,
+			type : 'post',
 			fileElementId : 'fcupload',// file标签的id
-			dataType : 'json',// 返回数据的类型
+			dataType : 'JSON',// 返回数据的类型
 			data : {
 				masterId : masterId,
-				masterCode : masterCode
+				masterCode : masterCode,
+				param : param
 			},
 			success : function(data) {
-				console.log(data);
+				console.info('this image file uoload successful !');
+				var fileName = data.msg;
+
+				console.info(data.msg);
+
+				$('#head-logo-image').attr('src', data.msg);
+				$('#head-info-image').attr('src', data.msg);
+
+				$.magnificPopup.close();
+				new PNotify({
+					title : '成功！',
+					text : '头像上传成功！',
+					type : 'success'
+				});
 			},
 			error : function(data) {
 				console.log(data);
@@ -257,8 +291,11 @@ function readURL(input) {
 	}
 }
 function updatePreview(c) {
-	console.info(c);
 	if (parseInt(c.w) > 0) {
+		cutWidth = parseInt(c.w);
+		cutHeight = parseInt(c.h);
+		cutX = parseInt(c.x);
+		cutY = parseInt(c.y);
 		// 计算预览区域图片缩放的比例，通过计算显示区域的宽度(与高度)与剪裁的宽度(与高度)之比得到
 
 		var rx = $("#preview-pane").width() / c.w;

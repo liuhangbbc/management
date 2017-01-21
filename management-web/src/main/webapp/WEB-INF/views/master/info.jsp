@@ -101,7 +101,7 @@
 				<div class="userbox">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<figure class="profile-picture hidden-xs">
-							<img
+							<img id="head-logo-image"
 								src="${master.headImage!=null?master.headImage:'../images/defult_user.jpg'}"
 								class="img-circle" alt="" />
 						</figure>
@@ -216,7 +216,7 @@
 										<div
 											class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bk-vcenter text-center">
 											<div class="bk-avatar">
-												<img
+												<img id="head-info-image"
 													src="${master.headImage!=null?master.headImage:'../images/defult_user.jpg'}"
 													alt=""
 													class="img-circle bk-img-120 bk-border-light-gray bk-border-3x" />
@@ -228,6 +228,7 @@
 											class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left bk-vcenter text-center">
 											<hr class="bk-margin-off" />
 											<small class="margin-b-03 margin-t-03">个人信息完善情况</small>
+											<!--  <div id="loading" class="rp-item-loading">Loading pages...</div>-->  
 											<div class="progress bk-margin-bottom-10 margin-t-03"
 												style="height: 8px;">
 												<div class="progress thin progress-striped active">
@@ -348,7 +349,7 @@
 																				<h2 class="panel-title">上传头像</h2>
 																			</div>
 																			<form id="upload-form" class="form-horizontal mb-lg"
-																				method="post" action="upHead"
+																				method="post" action="upImage"
 																				enctype="multipart/form-data">
 																				<div class="panel-body bk-noradius">
 																					<div class="form-group mt-lg height-350">

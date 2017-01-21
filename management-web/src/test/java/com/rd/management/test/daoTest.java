@@ -22,7 +22,7 @@ import com.rd.management.api.service.admin.MasterService;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/spring-mvc.xml",
-		"classpath:/spring-mybatis.xml", "classpath:/spring.xml" })
+		"classpath:/spring-mybatis.xml", "classpath:/spring.xml", "classpath:/spring-redis.xml", "classpath:/mybatis-configuration.xml" })
 public class daoTest {
 	private final Logger logger = Logger.getLogger(this.getClass());
 
@@ -53,5 +53,12 @@ public class daoTest {
 		int r = masterService.updateByMasterInfo(master);
 		logger.info("method masterUpdateTest get r reuslt ===>>> " + r);
 
+	}
+
+	@Test
+	public void masterQueryTest() {
+		Master master = masterService.queryById((long) 1);
+		logger.info("method masterQueryTest get master reuslt ===>>> "
+				+ master.toString());
 	}
 }

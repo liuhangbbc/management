@@ -162,11 +162,14 @@
 				<if test="phone != null">
 					phone = #{phone,jdbcType=VARCHAR},
 				</if>
+				<if test="phone != null">
+					phone = #{phone,jdbcType=VARCHAR},
+				</if>
 				<if test="email != null">
 					e_mail = #{email,jdbcType=VARCHAR},
 				</if>
-				<if test="remark != null">
-					remark = #{remark,jdbcType=VARCHAR},
+				<if test="headImage != null">
+					head_image = #{headImage,jdbcType=VARCHAR},
 				</if>
 			</trim>
 		</set>

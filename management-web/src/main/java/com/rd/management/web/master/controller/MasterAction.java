@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -21,7 +22,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.raindrop.utils.enum2DataUtils;
 import com.rd.management.api.entity.admin.Master;
 import com.rd.management.api.enums.admin.masterSexEnum;
-import com.rd.management.api.service.admin.MasterService;
 import com.rd.management.web.base.controller.BaseAction;
 import com.rd.management.web.master.manage.MasterManage;
 
@@ -37,9 +37,10 @@ import com.rd.management.web.master.manage.MasterManage;
 @RequestMapping("/master")
 public class MasterAction extends BaseAction {
 	private final Logger logger = Logger.getLogger(this.getClass());
+	
+	@Value("#{propertiesReader['server.upload']}")
+	private String uploadPath;
 
-	@Autowired
-	private MasterService masterService;
 	@Autowired
 	private MasterManage masterManage;
 
@@ -54,10 +55,9 @@ public class MasterAction extends BaseAction {
 			return new ModelAndView("redirect:/login/login");
 		} else {
 			// 以获取管理员的session登录数据
-			Master master = masterService.queryByCode(code);
+			Master master = masterManage.queryByCode(code);
 			map.put("master", master);
 			logger.info("map result => " + map.toString());
-
 			map.put("sexType", enum2DataUtils.toList(masterSexEnum.class));
 			return new ModelAndView("/master/info", map);
 		}
@@ -73,9 +73,9 @@ public class MasterAction extends BaseAction {
 		Long id = (Long) request.getSession().getAttribute("id");
 		map.put(SUCCESS, true);
 		if (id != null) {
-			map.put(MSG, masterService.queryById(id));
+			map.put(MSG, masterManage.queryById(id));
 		} else if (!StringUtils.isEmpty(code)) {
-			map.put(MSG, masterService.queryByCode(code));
+			map.put(MSG, masterManage.queryByCode(code));
 		} else {
 			map.put(SUCCESS, false);
 			map.put(ERRORCODE, "10006");
@@ -93,7 +93,7 @@ public class MasterAction extends BaseAction {
 		Master master = JSONObject.parseObject(
 				(String) request.getParameter("master"), Master.class);
 		if (master.getId() != null || master.getCode() != null) {
-			int result = masterService.updateByMasterInfo(master);
+			int result = masterManage.updateByMasterInfo(master);
 			if (result == 1) {
 				map.put(SUCCESS, true);
 			}
@@ -141,7 +141,7 @@ public class MasterAction extends BaseAction {
 		} else if (StringUtils.isEmpty(code)) {
 			map.put(ERRORCODE, "10006");
 			map.put(ERRORMSG, "未找到相应code或id信息");
-		} else if (!masterService.checkLogin(masterService.queryByCode(code)
+		} else if (!masterManage.checkLogin(masterManage.queryByCode(code)
 				.getAccount(), originalPwd)) {
 			map.put(ERRORCODE, "10003");
 			map.put(ERRORMSG, "密码错误");
@@ -149,7 +149,7 @@ public class MasterAction extends BaseAction {
 			map.put(ERRORCODE, "10010");
 			map.put(ERRORMSG, "重复密码不一致");
 		} else {
-			int result = masterService.updateMasterPwdByCode(code, newPwd);
+			int result = masterManage.updateMasterPwdByCode(code, newPwd);
 			if (result != 1) {
 				map.put(ERRORCODE, "10011");
 				map.put(ERRORMSG, "密码修改失败");
@@ -163,21 +163,17 @@ public class MasterAction extends BaseAction {
 
 	}
 
-	@RequestMapping(value = "/upHead", method = RequestMethod.POST)
+	@RequestMapping(value = "/upImage", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> upLoadHead(HttpServletRequest request,
-			@RequestParam("imgFile") MultipartFile file)
-			throws Exception {
+	public Map<String, Object> upLoadImage(HttpServletRequest request,
+			@RequestParam("imgFile") MultipartFile file) throws Exception {
 		map = new HashMap<String, Object>();
-
-		Long id = (Long) request.getSession().getAttribute("masterId");
-		String code = (String) request.getSession().getAttribute("masterCode");
+		Long id = request.getParameter("masterId") == null ? null : Long
+				.parseLong(request.getParameter("masterId"));
+		String code = request.getParameter("masterCode");
+		String param = request.getParameter("param");
 		String sessionCode = (String) request.getSession().getAttribute(
 				"master_session");
-
-		Map<String, Object> data = JSONObject.parseObject((String) request
-				.getParameter("param"));
-		
 		map.put(SUCCESS, false);
 		if (file.isEmpty()) {
 			map.put(ERRORCODE, "10012");
@@ -192,9 +188,11 @@ public class MasterAction extends BaseAction {
 					+ " , file oraginal file name : "
 					+ file.getOriginalFilename() + " , get file size : "
 					+ file.getSize() + " byte");
-			masterManage.saveFile(file,data);
-
+			String fileName = masterManage.saveFile(file, param.split(","));
 			logger.info("========>>>>>>> 文件上传成功 <<<<<<<========");
+
+			masterManage.saveImg(id, code, sessionCode, fileName);
+			map.put(MSG, uploadPath + "/" +fileName);
 		}
 		return map;
 	}
